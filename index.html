@@ -1,538 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WOOF.EXE</title>
+  <title>WOOF.EXE</title>
 
-<style>
-:root{
-  --brick:#923A3A;
-  --pink:#D6888A;
-  --lime:#C4F407;
-  --ink:#0F0A19;
-  --maroon:#320812;
-  --cream:#FFF4E8;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #11110f;
+      color: #f4f0e8;
+      min-height: 100vh;
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--ink);
-  color:var(--cream);
-}
+    /* NAV */
+    nav {
+      width: 100%;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(17,17,15,.92);
+      backdrop-filter: blur(12px);
+    }
 
-button{
-  font:inherit;
-  cursor:pointer;
-}
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+    .nav-logo {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
 
-/* NAV */
+    .nav-title {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(15,10,25,.95);
-  border-bottom:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(12px);
-}
+    .connect-btn {
+      border: 1px solid #b7ff00;
+      background: #b7ff00;
+      color: #11110f;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s;
+    }
 
-.nav-inner{
-  max-width:1180px;
-  margin:auto;
-  padding:16px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
+    .connect-btn:hover {
+      transform: translateY(-1px);
+      opacity: .9;
+    }
 
-.nav-logo{
-  height:42px;
-  width:auto;
-  display:block;
-}
+    /* HERO */
+    .hero {
+      width: 100%;
+      padding: 35px 5% 20px;
+    }
 
-.connect-btn{
-  border:0;
-  background:var(--lime);
-  color:var(--ink);
-  padding:12px 18px;
-  border-radius:10px;
-  font-weight:900;
-  font-size:13px;
-  transition:.2s;
-}
+    .hero-banner {
+      width: 100%;
+      max-width: 1500px;
+      margin: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
 
-.connect-btn:hover{
-  transform:translateY(-2px);
-}
+    /* MAIN */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 5% 90px;
+    }
 
-/* HERO */
+    .title {
+      text-align: center;
+      font-size: clamp(42px, 8vw, 92px);
+      font-weight: 900;
+      letter-spacing: -4px;
+      line-height: .95;
+    }
 
-.hero{
-  max-width:1180px;
-  margin:auto;
-  padding:45px 20px 30px;
-}
+    .title span {
+      color: #b7ff00;
+    }
 
-.hero-banner{
-  width:100%;
-  display:block;
-  border-radius:20px;
-  border:2px solid rgba(255,255,255,.08);
-}
+    .description {
+      max-width: 650px;
+      margin: 25px auto 0;
+      text-align: center;
+      color: #aaa79e;
+      font-size: 17px;
+      line-height: 1.6;
+    }
 
-.hero-content{
-  padding:38px 0 20px;
-  text-align:center;
-}
+    /* MINT */
+    .mint-section {
+      margin-top: 70px;
+    }
 
-.hero h1{
-  font-size:clamp(42px,8vw,92px);
-  line-height:.9;
-  letter-spacing:-5px;
-  color:var(--lime);
-  font-weight:1000;
-}
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
 
-.hero p{
-  max-width:650px;
-  margin:22px auto;
-  color:#eadfe0;
-  font-size:18px;
-  line-height:1.6;
-}
+    .mint-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
 
-.hero-mint{
-  display:inline-block;
-  background:var(--lime);
-  color:var(--ink);
-  border:0;
-  border-radius:12px;
-  padding:16px 25px;
-  font-weight:1000;
-  font-size:15px;
-}
+    .mint-card {
+      background: #191916;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
+      padding: 30px;
+    }
 
-/* MINT */
+    .mint-card.free {
+      border-color: rgba(183,255,0,.45);
+    }
 
-.mint-section{
-  max-width:1000px;
-  margin:auto;
-  padding:55px 20px 90px;
-}
+    .mint-card.public {
+      border-color: rgba(255,92,132,.45);
+    }
 
-.section-title{
-  text-align:center;
-  margin-bottom:30px;
-}
+    .mint-card h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
 
-.section-title h2{
-  font-size:clamp(32px,6vw,58px);
-  color:var(--cream);
-  margin-bottom:10px;
-}
+    .mint-price {
+      font-size: 18px;
+      color: #b7ff00;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
 
-.wallet-status{
-  text-align:center;
-  margin:15px auto 30px;
-  padding:13px 16px;
-  border-radius:10px;
-  background:rgba(255,255,255,.06);
-  color:#ddd;
-  max-width:700px;
-  word-break:break-word;
-}
+    .public .mint-price {
+      color: #ff5c84;
+    }
 
-.mint-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px;
-}
+    .mint-btn {
+      width: 100%;
+      padding: 15px;
+      border: 0;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 900;
+      cursor: pointer;
+      background: #b7ff00;
+      color: #11110f;
+    }
 
-.mint-card{
-  background:var(--cream);
-  color:var(--ink);
-  border-radius:18px;
-  padding:28px;
-  border:3px solid transparent;
-}
+    .public .mint-btn {
+      background: #ff5c84;
+      color: #11110f;
+    }
 
-.mint-card.free{
-  border-color:var(--lime);
-}
+    .mint-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
 
-.mint-card h3{
-  font-size:28px;
-  margin-bottom:8px;
-}
+    .status {
+      margin-top: 25px;
+      text-align: center;
+      min-height: 24px;
+      color: #aaa79e;
+      font-size: 14px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
 
-.mint-count{
-  font-size:14px;
-  opacity:.65;
-  margin-bottom:20px;
-}
+    .wallet-info {
+      margin: 18px auto 0;
+      text-align: center;
+      color: #b7ff00;
+      font-size: 13px;
+      display: none;
+    }
 
-.price{
-  font-size:32px;
-  font-weight:1000;
-  margin-bottom:20px;
-}
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 30px 5%;
+      text-align: center;
+      color: #77756e;
+      font-size: 13px;
+    }
 
-.quantity-row{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:18px;
-}
+    @media(max-width: 700px) {
+      nav {
+        padding: 14px 4%;
+      }
 
-.qty-btn{
-  width:42px;
-  height:42px;
-  border:0;
-  border-radius:9px;
-  background:var(--ink);
-  color:var(--cream);
-  font-size:24px;
-  font-weight:bold;
-}
+      .nav-title {
+        font-size: 14px;
+      }
 
-.qty-number{
-  min-width:40px;
-  text-align:center;
-  font-size:20px;
-  font-weight:900;
-}
+      .connect-btn {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
 
-.mint-btn{
-  width:100%;
-  border:0;
-  border-radius:11px;
-  padding:15px;
-  background:var(--ink);
-  color:var(--cream);
-  font-weight:1000;
-  transition:.2s;
-}
+      .hero {
+        padding: 20px 4% 10px;
+      }
 
-.mint-btn:hover:not(:disabled){
-  transform:translateY(-2px);
-}
+      main {
+        padding: 45px 4% 70px;
+      }
 
-.mint-btn:disabled{
-  opacity:.45;
-  cursor:not-allowed;
-}
+      .mint-grid {
+        grid-template-columns: 1fr;
+      }
 
-.mint-note{
-  text-align:center;
-  color:#a99ea0;
-  font-size:13px;
-  margin-top:18px;
-  line-height:1.5;
-}
-
-.tx-link{
-  display:none;
-  margin:18px auto 0;
-  width:fit-content;
-  background:var(--lime);
-  color:var(--ink);
-  padding:11px 17px;
-  border-radius:9px;
-  font-weight:900;
-}
-
-/* FOOTER */
-
-footer{
-  border-top:1px solid rgba(255,255,255,.1);
-  text-align:center;
-  padding:30px 20px;
-  color:#8f8587;
-  font-size:13px;
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-  .nav-inner{
-    padding:13px 15px;
-  }
-
-  .nav-logo{
-    max-width:130px;
-    height:auto;
-  }
-
-  .connect-btn{
-    padding:10px 13px;
-    font-size:12px;
-  }
-
-  .hero{
-    padding:25px 14px;
-  }
-
-  .hero h1{
-    letter-spacing:-3px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .mint-section{
-    padding:40px 14px 70px;
-  }
-
-  .mint-grid{
-    grid-template-columns:1fr;
-  }
-
-  .mint-card{
-    padding:22px;
-  }
-}
-</style>
+      .title {
+        letter-spacing: -2px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="nav-inner">
-
-    <a href="#">
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
       <img
-        class="nav-logo"
         src="assets/woof-exe-logo.png"
+        class="nav-logo"
         alt="WOOF.EXE"
       >
-    </a>
 
-    <!-- Reown AppKit wallet button -->
+      <div class="nav-title">
+        WOOF.EXE
+      </div>
+    </div>
+
     <button
-      id="connectBtn"
+      id="connectWallet"
       class="connect-btn"
       type="button"
     >
-      CONNECT WALLET
+      Connect Wallet
     </button>
-
-  </div>
-</nav>
+  </nav>
 
 
-<section class="hero">
+  <!-- HERO -->
+  <section class="hero">
+    <img
+      src="assets/woof-exe-opensea-banner.png"
+      class="hero-banner"
+      alt="WOOF.EXE"
+    >
+  </section>
 
-  <img
-    class="hero-banner"
-    src="assets/woof-exe-opensea-banner.png"
-    alt="WOOF.EXE"
-  >
 
-  <div class="hero-content">
+  <!-- CONTENT -->
+  <main>
 
-    <h1>WOOF.EXE</h1>
+    <h1 class="title">
+      WOOF<span>.EXE</span>
+    </h1>
 
-    <p>
+    <p class="description">
       999 dogs. One executable. No uninstall button.
       WOOF.EXE is running on Robinhood Chain.
     </p>
 
-    <button
-      class="hero-mint"
-      onclick="document.getElementById('mint').scrollIntoView()"
-    >
-      MINT WOOF.EXE
-    </button>
 
-  </div>
-
-</section>
+    <!-- WALLET STATUS -->
+    <div id="walletInfo" class="wallet-info"></div>
 
 
-<section id="mint" class="mint-section">
+    <!-- MINT -->
+    <section class="mint-section">
 
-  <div class="section-title">
-    <h2>MINT</h2>
-  </div>
+      <h2 class="section-title">
+        MINT
+      </h2>
 
+      <div class="mint-grid">
 
-  <div
-    id="walletStatus"
-    class="wallet-status"
-  >
-    Connect your wallet to begin.
-  </div>
+        <!-- FREE -->
+        <div class="mint-card free">
 
+          <h3>Free Mint</h3>
 
-  <div class="mint-grid">
+          <div class="mint-price">
+            FREE
+          </div>
 
+          <button
+            id="freeMintBtn"
+            class="mint-btn"
+            type="button"
+          >
+            MINT FREE
+          </button>
 
-    <!-- FREE MINT -->
-
-    <div class="mint-card free">
-
-      <h3>Free Mint</h3>
-
-      <div class="mint-count">
-        333 NFTs available
-      </div>
-
-      <div class="price">
-        FREE
-      </div>
-
-
-      <div class="quantity-row">
-
-        <button
-          class="qty-btn"
-          onclick="changeQty('free',-1)"
-        >
-          −
-        </button>
-
-        <div
-          id="freeQty"
-          class="qty-number"
-        >
-          1
         </div>
 
-        <button
-          class="qty-btn"
-          onclick="changeQty('free',1)"
-        >
-          +
-        </button>
 
-      </div>
+        <!-- PUBLIC -->
+        <div class="mint-card public">
 
+          <h3>Public Mint</h3>
 
-      <button
-        id="freeMintBtn"
-        class="mint-btn"
-        onclick="mint('free')"
-        disabled
-      >
-        CONNECT WALLET
-      </button>
+          <div class="mint-price">
+            0.00015 ETH
+          </div>
 
-    </div>
+          <button
+            id="publicMintBtn"
+            class="mint-btn"
+            type="button"
+          >
+            MINT
+          </button>
 
-
-    <!-- PUBLIC MINT -->
-
-    <div class="mint-card">
-
-      <h3>Public Mint</h3>
-
-      <div class="mint-count">
-        666 NFTs available
-      </div>
-
-      <div class="price">
-        0.00015 ETH
-      </div>
-
-
-      <div class="quantity-row">
-
-        <button
-          class="qty-btn"
-          onclick="changeQty('public',-1)"
-        >
-          −
-        </button>
-
-        <div
-          id="publicQty"
-          class="qty-number"
-        >
-          1
         </div>
 
-        <button
-          class="qty-btn"
-          onclick="changeQty('public',1)"
-        >
-          +
-        </button>
-
       </div>
 
 
-      <button
-        id="publicMintBtn"
-        class="mint-btn"
-        onclick="mint('public')"
-        disabled
-      >
-        CONNECT WALLET
-      </button>
+      <div
+        id="status"
+        class="status"
+      ></div>
 
-    </div>
+    </section>
 
-  </div>
+  </main>
 
 
-  <a
-    id="txLink"
-    class="tx-link"
-    target="_blank"
-    rel="noopener"
-  >
-    VIEW TRANSACTION
-  </a>
+  <footer>
+    WOOF.EXE © 2026
+  </footer>
 
 
-  <div class="mint-note">
-    Your wallet will ask you to confirm the transaction.
-  </div>
-
-</section>
-
-
-<footer>
-  WOOF.EXE © 2026 — Running on Robinhood Chain
-</footer>
-
-
-<!--
-===========================================================
-REOWN APPKIT CDN
-===========================================================
--->
 <script type="module">
-
-import {
-  createAppKit,
-  WagmiAdapter,
-  WagmiCore
-}
-from
-"https://cdn.jsdelivr.net/npm/@reown/appkit-cdn@1.4.1/dist/appkit.min.js";
-
 
 /* =========================================================
    CONFIG
@@ -541,582 +376,477 @@ from
 const PROJECT_ID =
   "c05be292c5b75162d2ff3f319168f91e";
 
+const CHAIN_ID =
+  4663;
+
+const RPC =
+  "https://rpc.mainnet.chain.robinhood.com";
 
 const COLLECTION_ADDRESS =
   "0x9590793289f2192a5CDc8F0261917bb17be34d0a";
 
-
 const COLLECTION_SLUG =
   "woof-exe";
-
-
-const CHAIN_ID =
-  4663;
-
-
-const RPC_URL =
-  "https://rpc.mainnet.chain.robinhood.com";
-
-
-const EXPLORER =
-  "https://robinhoodchain.blockscout.com";
-
 
 const SCATTER_API =
   "https://api.scatter.art/v1";
 
 
 /* =========================================================
-   ROBINHOOD CHAIN
+   ELEMENTS
 ========================================================= */
 
-const robinhood =
-{
-  id:4663,
+const connectButton =
+  document.getElementById("connectWallet");
 
-  name:"Robinhood Chain",
+const freeMintButton =
+  document.getElementById("freeMintBtn");
 
-  nativeCurrency:{
-    name:"Ether",
-    symbol:"ETH",
-    decimals:18
-  },
+const publicMintButton =
+  document.getElementById("publicMintBtn");
 
-  rpcUrls:{
-    default:{
-      http:[
-        RPC_URL
-      ]
-    }
-  },
+const statusElement =
+  document.getElementById("status");
 
-  blockExplorers:{
-    default:{
-      name:"Robinhood Blockscout",
-      url:EXPLORER
-    }
-  }
-};
-
-
-/* =========================================================
-   REOWN ADAPTER
-========================================================= */
-
-const networks = [
-  robinhood
-];
-
-
-const wagmiAdapter =
-  new WagmiAdapter({
-
-    networks,
-
-    projectId:PROJECT_ID
-
-  });
-
-
-/* =========================================================
-   APPKIT
-========================================================= */
-
-const metadata =
-{
-  name:"WOOF.EXE",
-
-  description:
-    "999 dogs. One executable. No uninstall button.",
-
-  url:
-    window.location.origin,
-
-  icons:[
-    window.location.origin +
-    "/assets/woof-exe-logo.png"
-  ]
-};
-
-
-const appKit =
-  createAppKit({
-
-    adapters:[
-      wagmiAdapter
-    ],
-
-    networks,
-
-    projectId:PROJECT_ID,
-
-    defaultChain:
-      robinhood,
-
-    metadata,
-
-    themeMode:"dark",
-
-    allWallets:"SHOW",
-
-    features:{
-      analytics:false,
-      email:false,
-      socials:false,
-      swaps:false,
-      onramp:false
-    },
-
-    enableInjected:true,
-
-    enableEIP6963:true
-  });
-
-
-/* =========================================================
-   WAGMI CORE
-========================================================= */
-
-const {
-  getAccount,
-  watchAccount,
-  getChainId,
-  switchChain,
-  sendTransaction,
-  waitForTransactionReceipt
-}
-=
-WagmiCore;
+const walletInfo =
+  document.getElementById("walletInfo");
 
 
 /* =========================================================
    STATE
 ========================================================= */
 
-let account = null;
-
-let quantities =
-{
-  free:1,
-  public:1
-};
+let walletProvider = null;
+let walletAddress = null;
 
 
 /* =========================================================
-   ELEMENTS
+   STATUS
 ========================================================= */
 
-const connectBtn =
-  document.getElementById(
-    "connectBtn"
-  );
+function setStatus(message) {
 
-const walletStatus =
-  document.getElementById(
-    "walletStatus"
-  );
+  statusElement.textContent =
+    message || "";
 
-const freeMintBtn =
-  document.getElementById(
-    "freeMintBtn"
-  );
-
-const publicMintBtn =
-  document.getElementById(
-    "publicMintBtn"
-  );
-
-const txLink =
-  document.getElementById(
-    "txLink"
-  );
-
-
-/* =========================================================
-   OPEN REOWN MODAL
-========================================================= */
-
-connectBtn.addEventListener(
-  "click",
-  async () => {
-
-    try{
-
-      appKit.open();
-
-    }catch(error){
-
-      console.error(error);
-
-      walletStatus.textContent =
-        "Unable to open wallet selector.";
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   ACCOUNT WATCHER
-========================================================= */
-
-watchAccount(
-  wagmiAdapter.wagmiConfig,
-  {
-    onChange:
-      async (newAccount) => {
-
-        account =
-          newAccount;
-
-        await updateWalletUI();
-
-      }
-  }
-);
-
-
-/* =========================================================
-   INITIAL ACCOUNT
-========================================================= */
-
-setTimeout(
-  async () => {
-
-    try{
-
-      account =
-        getAccount(
-          wagmiAdapter.wagmiConfig
-        );
-
-      await updateWalletUI();
-
-    }catch(error){
-
-      console.error(error);
-
-    }
-
-  },
-  800
-);
-
-
-/* =========================================================
-   WALLET UI
-========================================================= */
-
-async function updateWalletUI(){
-
-  if(
-    !account ||
-    !account.address
-  ){
-
-    connectBtn.textContent =
-      "CONNECT WALLET";
-
-    walletStatus.textContent =
-      "Connect your wallet to begin.";
-
-    freeMintBtn.disabled =
-      true;
-
-    publicMintBtn.disabled =
-      true;
-
-    freeMintBtn.textContent =
-      "CONNECT WALLET";
-
-    publicMintBtn.textContent =
-      "CONNECT WALLET";
-
-    return;
-
-  }
-
-
-  const address =
-    account.address;
-
-
-  const shortAddress =
-    address.slice(0,6) +
-    "..." +
-    address.slice(-4);
-
-
-  connectBtn.textContent =
-    shortAddress;
-
-
-  /*
-    Ensure Robinhood Chain.
-  */
-
-  try{
-
-    const chain =
-      getChainId(
-        wagmiAdapter.wagmiConfig
-      );
-
-
-    if(
-      chain !== CHAIN_ID
-    ){
-
-      walletStatus.textContent =
-        "Please switch to Robinhood Chain.";
-
-      freeMintBtn.disabled =
-        true;
-
-      publicMintBtn.disabled =
-        true;
-
-      /*
-        Try switch automatically.
-      */
-
-      try{
-
-        await switchChain(
-          wagmiAdapter.wagmiConfig,
-          {
-            chainId:CHAIN_ID
-          }
-        );
-
-      }catch(error){
-
-        console.error(
-          "Chain switch:",
-          error
-        );
-
-        return;
-
-      }
-
-    }
-
-  }catch(error){
-
-    console.error(error);
-
-  }
-
-
-  walletStatus.innerHTML =
-    "<strong>Wallet connected</strong>: " +
-    shortAddress;
-
-
-  freeMintBtn.disabled =
-    false;
-
-  publicMintBtn.disabled =
-    false;
-
-  freeMintBtn.textContent =
-    "MINT FREE";
-
-  publicMintBtn.textContent =
-    "MINT NOW";
 }
 
 
 /* =========================================================
-   QUANTITY
+   SHORT ADDRESS
 ========================================================= */
 
-window.changeQty =
-function(type,amount){
+function shortAddress(address) {
 
-  quantities[type] +=
-    amount;
+  if (!address) return "";
 
+  return (
+    address.slice(0, 6) +
+    "..." +
+    address.slice(-4)
+  );
 
-  if(
-    quantities[type] < 1
-  ){
-
-    quantities[type] =
-      1;
-
-  }
-
-
-  if(
-    quantities[type] > 20
-  ){
-
-    quantities[type] =
-      20;
-
-  }
-
-
-  document.getElementById(
-    type === "free"
-      ? "freeQty"
-      : "publicQty"
-  ).textContent =
-    quantities[type];
-
-};
+}
 
 
 /* =========================================================
-   SCATTER — ELIGIBLE LISTS
+   UPDATE WALLET UI
 ========================================================= */
 
-async function getEligibleLists(){
+function updateWalletUI() {
+
+  if (walletAddress) {
+
+    connectButton.textContent =
+      shortAddress(walletAddress);
+
+    walletInfo.style.display =
+      "block";
+
+    walletInfo.textContent =
+      "Connected: " + walletAddress;
+
+  } else {
+
+    connectButton.textContent =
+      "Connect Wallet";
+
+    walletInfo.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =========================================================
+   LOAD WALLETCONNECT
+========================================================= */
+
+async function loadWalletConnect() {
+
+  if (walletProvider) {
+    return walletProvider;
+  }
+
+  setStatus(
+    "Loading wallet connection..."
+  );
+
+  const module =
+    await import(
+      "https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider@2.25.0/+esm"
+    );
+
+  const EthereumProvider =
+    module.EthereumProvider;
+
+  if (!EthereumProvider) {
+
+    throw new Error(
+      "WalletConnect provider failed to load."
+    );
+
+  }
+
+
+  walletProvider =
+    await EthereumProvider.init({
+
+      projectId:
+        PROJECT_ID,
+
+      optionalChains: [
+        CHAIN_ID
+      ],
+
+      rpcMap: {
+        [CHAIN_ID]:
+          RPC
+      },
+
+      showQrModal:
+        true,
+
+      qrModalOptions: {
+        enableMobileFullScreen:
+          true
+      },
+
+      metadata: {
+
+        name:
+          "WOOF.EXE",
+
+        description:
+          "999 dogs. One executable. No uninstall button.",
+
+        url:
+          window.location.origin,
+
+        icons: [
+          new URL(
+            "assets/woof-exe-logo.png",
+            window.location.href
+          ).href
+        ]
+
+      }
+
+    });
+
+
+  /* EVENTS */
+
+  walletProvider.on(
+    "accountsChanged",
+    accounts => {
+
+      walletAddress =
+        accounts?.[0] || null;
+
+      updateWalletUI();
+
+    }
+  );
+
+
+  walletProvider.on(
+    "chainChanged",
+    chainId => {
+
+      console.log(
+        "Chain changed:",
+        chainId
+      );
+
+    }
+  );
+
+
+  walletProvider.on(
+    "disconnect",
+    () => {
+
+      walletAddress =
+        null;
+
+      updateWalletUI();
+
+    }
+  );
+
+
+  return walletProvider;
+
+}
+
+
+/* =========================================================
+   CONNECT WALLET
+========================================================= */
+
+async function connectWallet() {
+
+  try {
+
+    setStatus(
+      "Opening wallet selector..."
+    );
+
+    const provider =
+      await loadWalletConnect();
+
+
+    /*
+      This opens the WalletConnect
+      wallet selection / QR modal.
+    */
+
+    await provider.connect();
+
+
+    const accounts =
+      await provider.request({
+        method:
+          "eth_requestAccounts"
+      });
+
+
+    if (
+      !accounts ||
+      !accounts.length
+    ) {
+
+      throw new Error(
+        "No wallet address returned."
+      );
+
+    }
+
+
+    walletAddress =
+      accounts[0];
+
+
+    /* CHECK NETWORK */
+
+    const chainHex =
+      await provider.request({
+        method:
+          "eth_chainId"
+      });
+
+
+    const currentChain =
+      parseInt(
+        chainHex,
+        16
+      );
+
+
+    if (
+      currentChain !== CHAIN_ID
+    ) {
+
+      setStatus(
+        "Please switch your wallet to Robinhood Chain (4663)."
+      );
+
+      return;
+
+    }
+
+
+    updateWalletUI();
+
+
+    setStatus(
+      "Wallet connected."
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "CONNECT ERROR:",
+      error
+    );
+
+    setStatus(
+      error?.message ||
+      "Wallet connection failed."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   GET ELIGIBLE SCATTER MINT LISTS
+========================================================= */
+
+async function getEligibleLists() {
 
   const url =
-    SCATTER_API +
-    "/collection/" +
-    encodeURIComponent(
-      COLLECTION_SLUG
-    ) +
-    "/eligible-invite-lists" +
-    "?minterAddress=" +
-    encodeURIComponent(
-      account.address
-    );
+    `${SCATTER_API}/collection/${COLLECTION_SLUG}/eligible-invite-lists?minterAddress=${walletAddress}`;
 
 
   const response =
     await fetch(url);
 
 
-  if(
-    !response.ok
-  ){
+  if (!response.ok) {
 
     throw new Error(
-      "Unable to load Scatter mint lists."
+      "Failed to load Scatter mint lists."
     );
 
   }
 
 
-  const data =
+  const lists =
     await response.json();
 
 
-  return data;
+  if (!Array.isArray(lists)) {
+
+    throw new Error(
+      "Invalid mint list response."
+    );
+
+  }
+
+
+  return lists;
 
 }
 
 
 /* =========================================================
-   FIND LIST
+   FIND MINT LIST
 ========================================================= */
 
-function findMintList(
-  lists,
-  type
-){
+async function findMintList(type) {
 
-  if(
-    !Array.isArray(lists)
-  ){
-
-    return null;
-
-  }
+  const lists =
+    await getEligibleLists();
 
 
-  const normalized =
-    lists.map(
-      list => ({
-        ...list,
+  console.log(
+    "Scatter lists:",
+    lists
+  );
 
-        _name:
+
+  /*
+    Look for FREE / freemint first.
+  */
+
+  if (type === "free") {
+
+    const freeList =
+      lists.find(list => {
+
+        const name =
           String(
             list.name || ""
-          )
-          .trim()
-          .toLowerCase()
-      })
-    );
+          ).toLowerCase();
+
+        return (
+          name === "freemint" ||
+          name.includes("free")
+        );
+
+      });
 
 
-  if(
-    type === "free"
-  ){
+    if (!freeList) {
 
-    return (
-      normalized.find(
-        list =>
-          list._name ===
-          "freemint"
-      )
-      ||
-      normalized.find(
-        list =>
-          list._name.includes(
-            "free"
-          )
-      )
-      ||
-      null
+      throw new Error(
+        "Your wallet is not eligible for the Free Mint."
+      );
+
+    }
+
+
+    return freeList;
+
+  }
+
+
+  /*
+    PUBLIC LIST
+  */
+
+  const publicList =
+    lists.find(list => {
+
+      const name =
+        String(
+          list.name || ""
+        ).toLowerCase();
+
+      return (
+        name === "public" ||
+        name.includes("public")
+      );
+
+    });
+
+
+  if (!publicList) {
+
+    throw new Error(
+      "Public mint list is not available."
     );
 
   }
 
 
-  if(
-    type === "public"
-  ){
-
-    return (
-      normalized.find(
-        list =>
-          list._name ===
-          "public"
-      )
-      ||
-      normalized.find(
-        list =>
-          list._name.includes(
-            "public"
-          )
-      )
-      ||
-      null
-    );
-
-  }
-
-
-  return null;
+  return publicList;
 
 }
 
 
 /* =========================================================
-   SCATTER — CREATE TRANSACTION
+   GET SCATTER MINT TRANSACTION
 ========================================================= */
 
-async function createMintTransaction(
-  list,
-  quantity
-){
+async function getMintTransaction(
+  mintList
+) {
 
   const response =
     await fetch(
-      SCATTER_API +
-      "/mint",
+      `${SCATTER_API}/mint`,
       {
 
-        method:"POST",
+        method:
+          "POST",
 
-        headers:{
+        headers: {
           "Content-Type":
             "application/json"
         },
@@ -1131,19 +861,23 @@ async function createMintTransaction(
               CHAIN_ID,
 
             minterAddress:
-              account.address,
+              walletAddress,
 
-            lists:[
+            lists: [
+
               {
-                id:list.id,
+                id:
+                  mintList.id,
 
                 quantity:
-                  quantity
+                  1
               }
+
             ]
 
           })
 
+        }
       }
     );
 
@@ -1152,22 +886,26 @@ async function createMintTransaction(
     await response.json();
 
 
-  if(
-    !response.ok
-  ){
+  if (!response.ok) {
+
+    console.error(
+      "Scatter mint error:",
+      data
+    );
 
     throw new Error(
       data?.message ||
       data?.error ||
-      "Scatter mint request failed."
+      "Scatter mint transaction failed."
     );
 
   }
 
 
-  if(
-    !data?.mintTransaction
-  ){
+  if (
+    !data ||
+    !data.mintTransaction
+  ) {
 
     throw new Error(
       "Scatter did not return a mint transaction."
@@ -1182,256 +920,238 @@ async function createMintTransaction(
 
 
 /* =========================================================
-   MINT
+   SEND MINT TRANSACTION
 ========================================================= */
 
-window.mint =
-async function(type){
+async function sendMintTransaction(
+  mintData
+) {
 
-  if(
-    !account ||
-    !account.address
-  ){
+  const tx =
+    mintData.mintTransaction;
 
-    appKit.open();
 
-    return;
+  /*
+    Native ETH mint should have
+    an empty erc20s array.
+  */
+
+  if (
+    mintData.erc20s &&
+    mintData.erc20s.length > 0
+  ) {
+
+    throw new Error(
+      "This mint requires ERC20 approval. Native ETH mint expected."
+    );
 
   }
 
 
-  const button =
-    type === "free"
-      ? freeMintBtn
-      : publicMintBtn;
+  setStatus(
+    "Confirm the mint transaction in your wallet..."
+  );
 
 
-  const originalText =
-    button.textContent;
+  const txHash =
+    await walletProvider.request({
 
+      method:
+        "eth_sendTransaction",
 
-  try{
+      params: [
 
-    button.disabled =
-      true;
-
-    button.textContent =
-      "CHECKING...";
-
-
-    walletStatus.textContent =
-      "Checking mint availability...";
-
-
-    /*
-      Make sure wallet is on
-      Robinhood Chain.
-    */
-
-    const currentChain =
-      getChainId(
-        wagmiAdapter.wagmiConfig
-      );
-
-
-    if(
-      currentChain !==
-      CHAIN_ID
-    ){
-
-      await switchChain(
-        wagmiAdapter.wagmiConfig,
         {
-          chainId:CHAIN_ID
-        }
-      );
 
-    }
+          from:
+            walletAddress,
 
-
-    /*
-      Get Scatter lists.
-    */
-
-    const lists =
-      await getEligibleLists();
-
-
-    console.log(
-      "Scatter lists:",
-      lists
-    );
-
-
-    /*
-      Find requested phase.
-    */
-
-    const list =
-      findMintList(
-        lists,
-        type
-      );
-
-
-    if(
-      !list
-    ){
-
-      throw new Error(
-        type === "free"
-          ? "Free Mint is not available for this wallet."
-          : "Public Mint is not currently available."
-      );
-
-    }
-
-
-    const quantity =
-      quantities[type];
-
-
-    /*
-      Check wallet limit.
-    */
-
-    if(
-      list.wallet_limit !== undefined &&
-      Number(list.wallet_limit) <
-      quantity
-    ){
-
-      throw new Error(
-        "Wallet mint limit is " +
-        list.wallet_limit +
-        " for this mint list."
-      );
-
-    }
-
-
-    /*
-      Check list limit.
-    */
-
-    if(
-      list.list_limit !== undefined &&
-      Number(list.list_limit) <
-      quantity
-    ){
-
-      throw new Error(
-        "Not enough NFTs remain on this mint list."
-      );
-
-    }
-
-
-    button.textContent =
-      "PREPARING...";
-
-
-    walletStatus.textContent =
-      "Preparing transaction...";
-
-
-    /*
-      Ask Scatter to build the
-      actual mint transaction.
-    */
-
-    const response =
-      await createMintTransaction(
-        list,
-        quantity
-      );
-
-
-    /*
-      Native ETH mint should have
-      no ERC20 approval.
-    */
-
-    if(
-      response.erc20s &&
-      response.erc20s.length > 0
-    ){
-
-      throw new Error(
-        "This mint requires an ERC20 approval."
-      );
-
-    }
-
-
-    const tx =
-      response.mintTransaction;
-
-
-    button.textContent =
-      "CONFIRM IN WALLET";
-
-
-    walletStatus.textContent =
-      "Confirm the transaction in your wallet.";
-
-
-    /*
-      Send transaction through
-      Reown/Wagmi connected wallet.
-    */
-
-    const hash =
-      await sendTransaction(
-        wagmiAdapter.wagmiConfig,
-        {
-          to:tx.to,
+          to:
+            tx.to,
 
           value:
-            BigInt(
-              tx.value || "0"
-            ),
+            tx.value || "0x0",
 
           data:
-            tx.data,
+            tx.data || "0x"
 
-          chainId:
-            CHAIN_ID
         }
+
+      ]
+
+    });
+
+
+  return txHash;
+
+}
+
+
+/* =========================================================
+   MINT
+========================================================= */
+
+async function mint(type) {
+
+  try {
+
+    /* CONNECT FIRST */
+
+    if (!walletAddress) {
+
+      await connectWallet();
+
+    }
+
+
+    if (!walletAddress) {
+
+      return;
+
+    }
+
+
+    /* CHECK CHAIN */
+
+    const chainHex =
+      await walletProvider.request({
+        method:
+          "eth_chainId"
+      });
+
+
+    const chain =
+      parseInt(
+        chainHex,
+        16
+      );
+
+
+    if (chain !== CHAIN_ID) {
+
+      throw new Error(
+        "Wrong network. Please use Robinhood Chain (4663)."
+      );
+
+    }
+
+
+    setStatus(
+      "Checking mint eligibility..."
+    );
+
+
+    /* GET LIST */
+
+    const mintList =
+      await findMintList(type);
+
+
+    console.log(
+      "Selected mint list:",
+      mintList
+    );
+
+
+    setStatus(
+      "Preparing mint transaction..."
+    );
+
+
+    /* CREATE TRANSACTION */
+
+    const mintData =
+      await getMintTransaction(
+        mintList
       );
 
 
     console.log(
-      "Mint TX:",
-      hash
+      "Mint transaction:",
+      mintData
     );
 
 
-    button.textContent =
-      "CONFIRMING...";
+    /* SEND */
+
+    const txHash =
+      await sendMintTransaction(
+        mintData
+      );
 
 
-    walletStatus.textContent =
-      "Transaction submitted. Waiting for confirmation...";
+    setStatus(
+      "Mint submitted: " +
+      txHash
+    );
 
 
-    /*
-      Wait for blockchain receipt.
-    */
-
-    await waitForTransactionReceipt(
-      wagmiAdapter.wagmiConfig,
-      {
-        hash:hash,
-
-        chainId:
-          CHAIN_ID
-      }
+    console.log(
+      "MINT TX:",
+      txHash
     );
 
 
     /*
-      SUCCESS
+      Open Robinhood Chain explorer
     */
 
-   
+    window.open(
+      "https://robinhoodchain.blockscout.com/tx/" +
+      txHash,
+      "_blank"
+    );
+
+
+  } catch (error) {
+
+    console.error(
+      "MINT ERROR:",
+      error
+    );
+
+
+    setStatus(
+      error?.message ||
+      "Mint failed."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   BUTTON EVENTS
+========================================================= */
+
+connectButton.addEventListener(
+  "click",
+  connectWallet
+);
+
+
+freeMintButton.addEventListener(
+  "click",
+  () => mint("free")
+);
+
+
+publicMintButton.addEventListener(
+  "click",
+  () => mint("public")
+);
+
+
+/* =========================================================
+   INITIAL UI
+========================================================= */
+
+setStatus(
+  "Connect your wallet to mint."
+);
+
+</script>
+
+</body>
+</html>
