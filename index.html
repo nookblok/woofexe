@@ -1,1 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#923A3A">
 
+<title>WOOF.EXE — 999 Dogs. One Executable.</title>
+
+<meta
+  name="description"
+  content="999 dogs. One executable. No uninstall button. WOOF.EXE is running on Robinhood Chain."
+>
+
+<style>
+
+:root{
+  --brick:#923A3A;
+  --pink:#D6888A;
+  --lime:#C4F407;
+  --ink:#0F0A19;
+  --maroon:#320812;
+  --cream:#FFF4E8;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--pink) 0%,
+      var(--brick) 100%
+    );
+
+  min-height:100vh;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button{
+  font-family:inherit;
+}
+
+.wrap{
+  width:min(1100px,92%);
+  margin:auto;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  background:rgba(15,10,25,.97);
+
+  border-bottom:
+    3px solid var(--lime);
+
+  backdrop-filter:blur(10px);
+}
+
+.nav{
+  min-height:70px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:16px;
+}
+
+.logo{
+  height:48px;
+  width:auto;
+
+  display:block;
+
+  object-fit:contain;
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.navlinks a{
+  color:#fff;
+
+  font-size:13px;
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.btn{
+  min-height:52px;
+
+  padding:
+    0 22px;
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border:
+    3px solid var(--ink);
+
+  border-radius:12px;
+
+  background:var(--lime);
+  color:var(--ink);
+
+  box-shadow:
+    6px 6px 0 var(--maroon);
+
+  font-weight:1000;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  transition:
+    .15s ease;
+}
+
+.btn:hover{
+  transform:
+    translate(3px,3px);
+
+  box-shadow:
+    3px 3px 0 var(--maroon);
+}
+
+.btn.dark{
+  background:var(--ink);
+  color:#fff;
+
+  border-color:
+    var(--lime);
+}
+
+.btn:disabled{
+  opacity:.45;
+
+  cursor:not-allowed;
+
+  transform:none;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+  padding:
+    25px 0 65px;
+}
+
+.banner{
+  width:100%;
+
+  display:block;
+
+  border:
+    4px solid var(--ink);
+
+  border-radius:24px;
+
+  box-shadow:
+    12px 12px 0 var(--maroon);
+}
+
+.heroText{
+  text-align:center;
+
+  padding:
+    42px 10px 0;
+}
+
+.heroLogo{
+  width:
+    min(430px,82%);
+
+  margin:
+    0 auto 20px;
+
+  display:block;
+}
+
+.tagline{
+  margin:
+    0 auto 28px;
+
+  max-width:850px;
+
+  font-size:
+    clamp(20px,3vw,31px);
+
+  font-weight:1000;
+
+  line-height:1.05;
+}
+
+.actions{
+  display:flex;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:14px;
+}
+
+
+/* =========================================
+   ABOUT
+========================================= */
+
+section{
+  padding:
+    75px 0;
+}
+
+.about{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:25px;
+}
+
+.card{
+  background:
+    rgba(255,244,232,.78);
+
+  border:
+    4px solid var(--ink);
+
+  border-radius:20px;
+
+  padding:28px;
+
+  box-shadow:
+    9px 9px 0 var(--maroon);
+}
+
+.title{
+  margin:
+    0 0 22px;
+
+  font-size:
+    clamp(40px,7vw,70px);
+
+  line-height:.9;
+
+  letter-spacing:-4px;
+
+  font-weight:1000;
+
+  text-shadow:
+    5px 5px 0 var(--cream);
+}
+
+.card p{
+  font-size:18px;
+
+  line-height:1.5;
+
+  font-weight:700;
+}
+
+.terminal{
+  margin-top:22px;
+
+  background:var(--ink);
+
+  color:var(--lime);
+
+  border:
+    3px solid var(--lime);
+
+  border-radius:12px;
+
+  padding:16px;
+
+  font:
+    800 14px/1.7 monospace;
+}
+
+
+/* =========================================
+   MINT SECTION
+========================================= */
+
+.mint{
+  background:
+    rgba(15,10,25,.96);
+
+  color:#fff;
+
+  border-top:
+    4px solid var(--lime);
+
+  border-bottom:
+    4px solid var(--lime);
+}
+
+.mintTitle{
+  color:var(--lime);
+
+  text-align:center;
+
+  text-shadow:
+    5px 5px 0 var(--maroon);
+}
+
+.sub{
+  max-width:700px;
+
+  margin:
+    0 auto 30px;
+
+  text-align:center;
+
+  font-size:17px;
+
+  font-weight:700;
+
+  opacity:.85;
+}
+
+
+/* =========================================
+   WALLET
+========================================= */
+
+.walletRow{
+  display:flex;
+
+  justify-content:center;
+
+  margin-bottom:15px;
+}
+
+.wallet{
+  min-width:240px;
+}
+
+.walletAddress{
+  min-height:20px;
+
+  margin:
+    0 auto 28px;
+
+  text-align:center;
+
+  color:var(--lime);
+
+  font:
+    800 13px monospace;
+
+  word-break:break-all;
+}
+
+
+/* =========================================
+   MINT GRID
+========================================= */
+
+.mintGrid{
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:22px;
+
+  max-width:900px;
+
+  margin:auto;
+}
+
+.mintCard{
+  background:#17111d;
+
+  border:
+    3px solid var(--lime);
+
+  border-radius:18px;
+
+  padding:28px;
+
+  text-align:center;
+
+  box-shadow:
+    7px 7px 0 var(--maroon);
+}
+
+.number{
+  color:var(--lime);
+
+  font-size:
+    clamp(55px,9vw,88px);
+
+  line-height:.85;
+
+  font-weight:1000;
+}
+
+.name{
+  margin-top:16px;
+
+  font-size:21px;
+
+  font-weight:1000;
+
+  text-transform:uppercase;
+}
+
+.price{
+  margin-top:7px;
+
+  font-size:25px;
+
+  font-weight:1000;
+}
+
+.limit{
+  margin-top:7px;
+
+  font-size:12px;
+
+  font-weight:800;
+
+  opacity:.65;
+}
+
+
+/* =========================================
+   QUANTITY
+========================================= */
+
+.quantity{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin:
+    20px auto;
+
+  max-width:220px;
+}
+
+.quantity button{
+  width:50px;
+  height:50px;
+
+  border:
+    3px solid var(--lime);
+
+  background:transparent;
+
+  color:var(--lime);
+
+  font-size:26px;
+
+  font-weight:1000;
+
+  cursor:pointer;
+}
+
+.quantityValue{
+  width:80px;
+  height:50px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-top:
+    3px solid var(--lime);
+
+  border-bottom:
+    3px solid var(--lime);
+
+  font-size:22px;
+
+  font-weight:1000;
+}
+
+.mintButton{
+  width:100%;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status{
+  max-width:900px;
+
+  min-height:48px;
+
+  margin:
+    25px auto 0;
+
+  padding:
+    14px 18px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+
+  border:
+    2px solid rgba(196,244,7,.4);
+
+  border-radius:12px;
+
+  color:#fff;
+
+  font:
+    700 13px/1.4 monospace;
+}
+
+.status.ok{
+  color:var(--lime);
+
+  border-color:
+    var(--lime);
+}
+
+.status.error{
+  color:#ffb0b0;
+
+  border-color:
+    #ff7777;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.cta{
+  text-align:center;
+
+  background:var(--lime);
+
+  border-top:
+    4px solid var(--ink);
+
+  border-bottom:
+    4px solid var(--ink);
+}
+
+.cta h2{
+  margin:
+    0 0 18px;
+
+  font-size:
+    clamp(42px,8vw,86px);
+
+  line-height:.9;
+
+  letter-spacing:-5px;
+}
+
+.cta p{
+  max-width:650px;
+
+  margin:
+    0 auto 25px;
+
+  font-size:19px;
+
+  font-weight:800;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+  background:var(--ink);
+
+  color:#fff;
+
+  padding:
+    28px 0;
+}
+
+.footer{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:20px;
+}
+
+.footer strong{
+  color:var(--lime);
+
+  font-size:25px;
+}
+
+.footer span{
+  opacity:.6;
+
+  font-size:12px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media(max-width:800px){
+
+  .about{
+    grid-template-columns:1fr;
+  }
+
+  .mintGrid{
+    grid-template-columns:1fr;
+  }
+
+  .navlinks a:not(.openSea){
+    display:none;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:520px){
+
+  .nav{
+    min-height:62px;
+  }
+
+  .logo{
+    height:40px;
+  }
+
+  .hero{
+    padding-top:16px;
+  }
+
+  .banner{
+    border-radius:16px;
+  }
+
+  .actions{
+    display:grid;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
+
+  .mintCard{
+    padding:22px;
+  }
+
+  .footer{
+    flex-direction:column;
+
+    align-items:flex-start;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<nav>
+
+  <div class="wrap nav">
+
+    <a href="#top">
+
+      <img
+        src="assets/woof-exe-logo.png"
+        class="logo"
+        alt="WOOF.EXE"
+      >
+
+    </a>
+
+
+    <div class="navlinks">
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#mint">
+        Mint
+      </a>
+
+      <a
+        href="https://opensea.io/collection/woof-exe"
+        target="_blank"
+        rel="noopener"
+        class="btn openSea"
+      >
+        OpenSea
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<main id="top">
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<header class="hero">
+
+  <div class="wrap">
+
+    <img
+      src="assets/woof-exe-opensea-banner.png"
+      class="banner"
+      alt="WOOF.EXE"
+    >
+
+
+    <div class="heroText">
+
+      <img
+        src="assets/woof-exe-logo.png"
+        class="heroLogo"
+        alt="WOOF.EXE"
+      >
+
+
+      <p class="tagline">
+        999 dogs. One executable. No uninstall button.
+      </p>
+
+
+      <div class="actions">
+
+        <a
+          href="#mint"
+          class="btn"
+        >
+          Mint WOOF.EXE
+        </a>
+
+
+        <a
+          href="https://opensea.io/collection/woof-exe"
+          target="_blank"
+          rel="noopener"
+          class="btn dark"
+        >
+          View on OpenSea
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================
+     ABOUT
+========================================= -->
+
+<section id="about">
+
+  <div class="wrap about">
+
+
+    <div class="card">
+
+      <h2 class="title">
+        THE EXECUTABLE
+      </h2>
+
+      <p>
+        999 unique dogs running on Robinhood Chain.
+        Different looks. Different personalities.
+        One executable.
+      </p>
+
+
+      <div class="terminal">
+
+        &gt; booting WOOF.EXE...<br>
+        &gt; loading 999 dogs...<br>
+        &gt; status: RUNNING<br>
+        &gt; uninstall: NOT FOUND
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2 class="title">
+        WOOF.EXE
+      </h2>
+
+      <p>
+        One collection. 999 dogs.
+        Built to run on Robinhood Chain.
+      </p>
+
+      <p>
+        Connect your wallet and mint
+        directly from this website.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     MINT
+========================================= -->
+
+<section
+  class="mint"
+  id="mint"
+>
+
+  <div class="wrap">
+
+
+    <h2 class="title mintTitle">
+      MINT WOOF.EXE
+    </h2>
+
+
+    <p class="sub">
+      Connect your wallet, choose your mint phase,
+      select your quantity, and confirm the transaction.
+    </p>
+
+
+    <!-- CONNECT WALLET -->
+
+    <div class="walletRow">
+
+      <button
+        id="connectBtn"
+        class="btn wallet"
+      >
+        Connect Wallet
+      </button>
+
+    </div>
+
+
+    <div
+      id="walletAddress"
+      class="walletAddress"
+    ></div>
+
+
+    <!-- =====================================
+         MINT CARDS
+    ====================================== -->
+
+    <div class="mintGrid">
+
+
+      <!-- FREE MINT -->
+
+      <div class="mintCard">
+
+        <div class="number">
+          333
+        </div>
+
+        <div class="name">
+          Free Mint
+        </div>
+
+        <div class="price">
+          FREE
+        </div>
+
+        <div class="limit">
+          333 AVAILABLE
+        </div>
+
+
+        <div class="quantity">
+
+          <button
+            type="button"
+            onclick="changeQty('free',-1)"
+          >
+            −
+          </button>
+
+
+          <div
+            class="quantityValue"
+            id="freeQty"
+          >
+            1
+          </div>
+
+
+          <button
+            type="button"
+            onclick="changeQty('free',1)"
+          >
+            +
+          </button>
+
+        </div>
+
+
+        <button
+          type="button"
+          id="freeMintBtn"
+          class="btn mintButton"
+          onclick="mint('free')"
+        >
+          MINT FREE
+        </button>
+
+      </div>
+
+
+      <!-- PUBLIC MINT -->
+
+      <div class="mintCard">
+
+        <div class="number">
+          666
+        </div>
+
+        <div class="name">
+          Public Mint
+        </div>
+
+        <div class="price">
+          0.00015 ETH
+        </div>
+
+        <div class="limit">
+          666 AVAILABLE
+        </div>
+
+
+        <div class="quantity">
+
+          <button
+            type="button"
+            onclick="changeQty('public',-1)"
+          >
+            −
+          </button>
+
+
+          <div
+            class="quantityValue"
+            id="publicQty"
+          >
+            1
+          </div>
+
+
+          <button
+            type="button"
+            onclick="changeQty('public',1)"
+          >
+            +
+          </button>
+
+
+        </div>
+
+
+        <button
+          type="button"
+          id="publicMintBtn"
+          class="btn mintButton"
+          onclick="mint('public')"
+        >
+          MINT NOW
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div
+      id="status"
+      class="status"
+    >
+      Connect your wallet to begin.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
+<section class="cta">
+
+  <div class="wrap">
+
+    <h2>
+      NO UNINSTALL BUTTON.
+    </h2>
+
+    <p>
+      WOOF.EXE is running.
+      Get your dog into the executable.
+    </p>
+
+
+    <a
+      href="#mint"
+      class="btn"
+    >
+      Enter WOOF.EXE
+    </a>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+  <div class="wrap footer">
+
+    <strong>
+      WOOF.EXE
+    </strong>
+
+    <span>
+      © 2026 WOOF.EXE · 999 dogs on Robinhood Chain
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   WOOF.EXE CONFIG
+========================================= */
+
+const CONFIG = {
+
+  collectionSlug:
+    "woof-exe",
+
+  collectionAddress:
+    "0x9590793289f2192a5CDc8F0261917bb17be34d0a",
+
+  chainId:
+    4663,
+
+  chainHex:
+    "0x1237",
+
+  rpc:
+    "https://rpc.mainnet.chain.robinhood.com",
+
+  explorer:
+    "https://robinhoodchain.blockscout.com",
+
+  api:
+    "https://api.scatter.art/v1"
+
+};
+
+
+/* =========================================
+   STATE
+========================================= */
+
+const quantity = {
+
+  free:1,
+
+  public:1
+
+};
+
+let provider = null;
+
+let account = null;
+
+let mintLists = [];
+
+
+/* =========================================
+   DOM
+========================================= */
+
+const connectBtn =
+  document.getElementById(
+    "connectBtn"
+  );
+
+const walletAddress =
+  document.getElementById(
+    "walletAddress"
+  );
+
+const statusBox =
+  document.getElementById(
+    "status"
+  );
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+function setStatus(
+  message,
+  type=""
+){
+
+  statusBox.textContent =
+    message;
+
+  statusBox.className =
+    "status " + type;
+
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+function getErrorMessage(error){
+
+  let message =
+    error?.message ||
+    String(error);
+
+  message =
+    message.replace(
+      /^Error:\s*/,
+      ""
+    );
+
+  if(
+    message
+      .toLowerCase()
+      .includes(
+        "user rejected"
+      )
+  ){
+
+    return "Transaction cancelled.";
+
+  }
+
+  if(
+    message.length > 240
+  ){
+
+    return (
+      message.substring(
+        0,
+        237
+      )
+      + "..."
+    );
+
+  }
+
+  return message;
+
+}
+
+
+/* =========================================
+   SHORT ADDRESS
+========================================= */
+
+function shortAddress(
+  address
+){
+
+  if(!address){
+    return "";
+  }
+
+  return (
+    address.substring(0,6)
+    +
+    "..."
+    +
+    address.substring(
+      address.length - 4
+    )
+  );
+
+}
+
+
+/* =========================================
+   QUANTITY
+========================================= */
+
+function changeQty(
+  type,
+  amount
+){
+
+  quantity[type] =
+    Math.max(
+      1,
+      Math.min(
+        20,
+        quantity[type] + amount
+      )
+    );
+
+
+  document.getElementById(
+    type + "Qty"
+  ).textContent =
+    quantity[type];
+
+}
+
+
+/* =========================================
+   GET WALLET
+========================================= */
+
+async function getWallet(){
+
+  if(
+    !window.ethereum
+  ){
+
+    throw new Error(
+      "No wallet detected. Open the website inside your wallet browser."
+    );
+
+  }
+
+  provider =
+    window.ethereum;
+
+  return provider;
+
+}
+
+
+/* =========================================
+   SWITCH NETWORK
+========================================= */
+
+async function switchToRobinhood(){
+
+  const wallet =
+    await getWallet();
+
+
+  try{
+
+    await wallet.request({
+
+      method:
+        "wallet_switchEthereumChain",
+
+      params:[
+        {
+          chainId:
+            CONFIG.chainHex
+        }
+      ]
+
+    });
+
+  }catch(error){
+
+    if(
+      error.code !== 4902
+    ){
+
+      throw error;
+
+    }
+
+
+    await wallet.request({
+
+      method:
+        "wallet_addEthereumChain",
+
+      params:[
+        {
+
+          chainId:
+            CONFIG.chainHex,
+
+          chainName:
+            "Robinhood Chain",
+
+          nativeCurrency:{
+            name:
+              "Ether",
+
+            symbol:
+              "ETH",
+
+            decimals:
+              18
+          },
+
+          rpcUrls:[
+            CONFIG.rpc
+          ],
+
+          blockExplorerUrls:[
+            CONFIG.explorer
+          ]
+
+        }
+      ]
+
+    });
+
+  }
+
+}
+
+
+/* =========================================
+   CONNECT
+========================================= */
+
+async function connectWallet(){
+
+  try{
+
+    const wallet =
+      await getWallet();
+
+
+    setStatus(
+      "Connecting wallet..."
+    );
+
+
+    await switchToRobinhood();
+
+
+    const accounts =
+      await wallet.request({
+
+        method:
+          "eth_requestAccounts"
+
+      });
+
+
+    if(
+      !accounts ||
+      !accounts.length
+    ){
+
+      throw new Error(
+        "No wallet account was returned."
+      );
+
+    }
+
+
+    account =
+      accounts[0];
+
+
+    walletAddress.textContent =
+      "CONNECTED: "
+      +
+      shortAddress(
+        account
+      );
+
+
+    connectBtn.textContent =
+      "WALLET CONNECTED";
+
+
+    setStatus(
+      "Loading mint options..."
+    );
+
+
+    await loadMintLists();
+
+
+  }catch(error){
+
+    setStatus(
+      getErrorMessage(error),
+      "error"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   LOAD MINT LISTS
+========================================= */
+
+async function loadMintLists(){
+
+  if(!account){
+
+    throw new Error(
+      "Connect your wallet first."
+    );
+
+  }
+
+
+  const url =
+    CONFIG.api
+    +
+    "/collection/"
+    +
+    encodeURIComponent(
+      CONFIG.collectionSlug
+    )
+    +
+    "/eligible-invite-lists?minterAddress="
+    +
+    encodeURIComponent(
+      account
+    );
+
+
+  const response =
+    await fetch(
+      url
+    );
+
+
+  const data =
+    await response.json();
+
+
+  if(
+    !response.ok
+  ){
+
+    throw new Error(
+      data?.message ||
+      data?.error ||
+      "Unable to load mint lists."
+    );
+
+  }
+
+
+  if(
+    Array.isArray(data)
+  ){
+
+    mintLists =
+      data;
+
+  }else{
+
+    mintLists =
+      data?.lists ||
+      data?.inviteLists ||
+      data?.data ||
+      [];
+
+  }
+
+
+  if(
+    !mintLists.length
+  ){
+
+    throw new Error(
+      "No mint lists are available for this wallet."
+    );
+
+  }
+
+
+  setStatus(
+    "Wallet connected. Ready to mint.",
+    "ok"
+  );
+
+}
+
+
+/* =========================================
+   FIND LIST
+========================================= */
+
+function findMintList(
+  type
