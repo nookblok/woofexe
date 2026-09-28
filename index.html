@@ -6,13 +6,18 @@
 
 <title>WOOF.EXE — 999 Dogs</title>
 
-<meta name="description"
-content="999 dogs. One executable. No uninstall button. WOOF.EXE is running on Robinhood Chain.">
+<meta
+    name="description"
+    content="999 dogs. One executable. No uninstall button. WOOF.EXE is running on Robinhood Chain."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
@@ -44,8 +49,6 @@ body {
     overflow-x: hidden;
 }
 
-/* grain */
-
 body::before {
     content: "";
     position: fixed;
@@ -53,16 +56,20 @@ body::before {
     pointer-events: none;
     opacity: .035;
     z-index: 999;
+
     background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
 }
 
-/* navigation */
+/* =========================
+   NAV
+========================= */
 
 nav {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 72px;
 
@@ -72,7 +79,7 @@ nav {
 
     padding: 0 5vw;
 
-    background: rgba(8,8,8,.82);
+    background: rgba(8,8,8,.84);
     backdrop-filter: blur(14px);
 
     border-bottom: 1px solid var(--line);
@@ -85,13 +92,15 @@ nav {
     text-decoration: none;
 
     font-family: "DM Mono", monospace;
-    font-weight: 500;
     font-size: 18px;
+    font-weight: 500;
+
     letter-spacing: -1px;
 }
 
 .nav-links {
     display: flex;
+    align-items: center;
     gap: 28px;
 }
 
@@ -101,6 +110,7 @@ nav {
 
     font-family: "DM Mono", monospace;
     font-size: 11px;
+
     text-transform: uppercase;
 
     transition: .2s;
@@ -115,30 +125,35 @@ nav {
     align-items: center;
     gap: 8px;
 
+    color: var(--lime);
+
     font-family: "DM Mono", monospace;
     font-size: 10px;
-    color: var(--lime);
 }
 
 .status-dot {
     width: 7px;
     height: 7px;
+
     background: var(--lime);
+
     border-radius: 50%;
+
     box-shadow: 0 0 12px var(--lime);
 }
 
-/* hero */
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 100vh;
+
     padding-top: 72px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    position: relative;
 }
 
 .hero-banner {
@@ -148,8 +163,10 @@ nav {
 
 .hero-banner img {
     display: block;
+
     width: 100%;
     max-height: 58vh;
+
     object-fit: cover;
 
     border: 1px solid var(--line);
@@ -163,55 +180,69 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
     gap: 40px;
 }
 
 .eyebrow {
-    font-family: "DM Mono", monospace;
     color: var(--lime);
+
+    font-family: "DM Mono", monospace;
     font-size: 11px;
+
     letter-spacing: 2px;
+
     margin-bottom: 15px;
 }
 
 h1 {
     font-size: clamp(55px, 11vw, 150px);
+
     line-height: .82;
+
     letter-spacing: -7px;
+
     font-weight: 700;
 }
 
 .hero-copy {
     max-width: 390px;
 
+    color: #999;
+
     font-family: "DM Mono", monospace;
     font-size: 13px;
+
     line-height: 1.7;
-    color: #999;
 }
 
 .hero-copy strong {
     color: var(--white);
 }
 
-/* marquee */
+/* =========================
+   MARQUEE
+========================= */
 
 .marquee {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
 
     overflow: hidden;
+
     white-space: nowrap;
 
     padding: 15px 0;
 
+    color: var(--lime);
+
     font-family: "DM Mono", monospace;
     font-size: 11px;
-    color: var(--lime);
 }
 
 .marquee-inner {
     display: inline-block;
+
     animation: marquee 25s linear infinite;
 }
 
@@ -220,6 +251,7 @@ h1 {
 }
 
 @keyframes marquee {
+
     from {
         transform: translateX(0);
     }
@@ -227,12 +259,16 @@ h1 {
     to {
         transform: translateX(-50%);
     }
+
 }
 
-/* sections */
+/* =========================
+   SECTIONS
+========================= */
 
 section {
     padding: 120px 5vw;
+
     border-bottom: 1px solid var(--line);
 }
 
@@ -253,21 +289,29 @@ section {
 
 .section-title {
     font-size: clamp(35px, 6vw, 80px);
+
     line-height: .9;
+
     letter-spacing: -4px;
 }
 
-/* about */
+/* =========================
+   ABOUT
+========================= */
 
 .about-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 8vw;
 }
 
 .about-text {
     font-size: clamp(20px, 2.4vw, 34px);
+
     line-height: 1.15;
+
     letter-spacing: -1px;
 }
 
@@ -277,17 +321,22 @@ section {
 
 .about-small {
     color: #888;
+
     font-family: "DM Mono", monospace;
     font-size: 12px;
+
     line-height: 1.8;
 }
 
-/* stats */
+/* =========================
+   STATS
+========================= */
 
 .stats {
     margin-top: 80px;
 
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
 
     border-top: 1px solid var(--line);
@@ -308,6 +357,7 @@ section {
 
     font-family: "DM Mono", monospace;
     font-size: 10px;
+
     text-transform: uppercase;
 
     margin-bottom: 30px;
@@ -322,32 +372,22 @@ section {
     color: var(--lime);
 }
 
-/* collection */
+/* =========================
+   COLLECTION
+========================= */
 
 .collection-intro {
     max-width: 700px;
+
+    margin-bottom: 50px;
 
     color: #888;
 
     font-family: "DM Mono", monospace;
     font-size: 12px;
+
     line-height: 1.8;
-
-    margin-bottom: 50px;
 }
-
-/*
-    IMPORTANT:
-    Images are loaded from their REAL filenames.
-
-    Example:
-    1.png
-    10.png
-    11.png
-    100.png
-
-    No renaming.
-*/
 
 .collection-grid {
     display: grid;
@@ -360,20 +400,21 @@ section {
 
 .nft {
     position: relative;
-    background: #0f0f0f;
 
-    border: 1px solid var(--line);
+    aspect-ratio: 1 / 1;
 
     overflow: hidden;
 
-    aspect-ratio: 1 / 1;
+    background: #0f0f0f;
+
+    border: 1px solid var(--line);
 }
 
 .nft img {
+    display: block;
+
     width: 100%;
     height: 100%;
-
-    display: block;
 
     object-fit: cover;
 
@@ -384,6 +425,7 @@ section {
 
 .nft:hover img {
     transform: scale(1.035);
+
     filter: brightness(1.08);
 }
 
@@ -405,7 +447,9 @@ section {
     border: 1px solid rgba(183,255,0,.25);
 }
 
-/* identity */
+/* =========================
+   IDENTITY
+========================= */
 
 .identity {
     display: grid;
@@ -417,7 +461,9 @@ section {
 
 .identity-title {
     font-size: clamp(40px, 6vw, 90px);
+
     line-height: .9;
+
     letter-spacing: -5px;
 }
 
@@ -426,15 +472,19 @@ section {
 }
 
 .identity-info {
+    color: #888;
+
     font-family: "DM Mono", monospace;
     font-size: 12px;
+
     line-height: 1.8;
-    color: #888;
 }
 
 .identity-row {
     display: flex;
     justify-content: space-between;
+
+    gap: 20px;
 
     padding: 15px 0;
 
@@ -443,21 +493,29 @@ section {
 
 .identity-row strong {
     color: var(--white);
+
     font-weight: 400;
+
+    text-align: right;
 }
 
 .identity-row a {
     color: var(--lime);
+
     text-decoration: none;
 
     word-break: break-all;
+
+    text-align: right;
 }
 
 .identity-row a:hover {
     text-decoration: underline;
 }
 
-/* final */
+/* =========================
+   FINAL
+========================= */
 
 .final {
     min-height: 65vh;
@@ -478,6 +536,7 @@ section {
 
     font-family: "DM Mono", monospace;
     font-size: 11px;
+
     letter-spacing: 2px;
 
     margin-bottom: 25px;
@@ -485,28 +544,36 @@ section {
 
 .final h2 {
     font-size: clamp(55px, 12vw, 170px);
+
     line-height: .78;
+
     letter-spacing: -8px;
 }
 
 .final p {
     max-width: 500px;
+
     margin: 35px auto 0;
 
     color: #777;
 
     font-family: "DM Mono", monospace;
     font-size: 12px;
+
     line-height: 1.8;
 }
 
-/* footer */
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     padding: 25px 5vw;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
     gap: 20px;
 
     color: #555;
@@ -519,23 +586,43 @@ footer {
 
 footer strong {
     color: var(--lime);
+
     font-weight: 400;
 }
 
-/* reveal */
+footer a {
+    color: var(--lime);
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   REVEAL
+========================= */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(25px);
-    transition: opacity .8s ease, transform .8s ease;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
 }
 
 .reveal.visible {
     opacity: 1;
+
     transform: translateY(0);
 }
 
-/* mobile */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -559,6 +646,7 @@ footer strong {
         padding: 35px 20px 55px;
 
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -577,11 +665,13 @@ footer strong {
     .about-grid,
     .identity {
         grid-template-columns: 1fr;
+
         gap: 40px;
     }
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
+
         margin-top: 55px;
     }
 
@@ -595,6 +685,7 @@ footer strong {
 
     .collection-grid {
         grid-template-columns: repeat(2, 1fr);
+
         gap: 6px;
     }
 
@@ -604,36 +695,71 @@ footer strong {
 
     footer {
         flex-direction: column;
+
+        align-items: flex-start;
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- NAV -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
-    <a href="#" class="logo">WOOF.EXE</a>
+    <a href="#" class="logo">
+        WOOF.EXE
+    </a>
 
     <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#collection">Collection</a>
-        <a href="#identity">Identity</a>
-        <a href="#contract">Contract</a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#collection">
+            Collection
+        </a>
+
+        <a href="#identity">
+            Identity
+        </a>
+
+        <a href="#contract">
+            Contract
+        </a>
+
+        <a
+            href="https://x.com/W00FDOTEXE"
+            target="_blank"
+            rel="noopener"
+        >
+            X ↗
+        </a>
+
     </div>
 
     <div class="status">
+
         <span class="status-dot"></span>
+
         RUNNING
+
     </div>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <header class="hero">
 
@@ -641,10 +767,11 @@ footer strong {
 
         <img
             src="assets/woof-exe-opensea-banner.png"
-            alt="WOOF.EXE Banner"
+            alt="WOOF.EXE"
         >
 
     </div>
+
 
     <div class="hero-content">
 
@@ -661,10 +788,18 @@ footer strong {
 
         </div>
 
+
         <div class="hero-copy">
 
-            <strong>999 dogs. One executable.</strong><br>
-            No uninstall button.<br><br>
+            <strong>
+                999 dogs. One executable.
+            </strong>
+
+            <br>
+
+            No uninstall button.
+
+            <br><br>
 
             WOOF.EXE is a digital dog collection
             running on Robinhood Chain.
@@ -676,7 +811,9 @@ footer strong {
 </header>
 
 
-<!-- MARQUEE -->
+<!-- =========================
+     MARQUEE
+========================= -->
 
 <div class="marquee">
 
@@ -686,10 +823,12 @@ footer strong {
         <span>999 DOGS</span>
         <span>ROBINHOOD CHAIN</span>
         <span>NO UNINSTALL</span>
+
         <span>WOOF.EXE</span>
         <span>999 DOGS</span>
         <span>ROBINHOOD CHAIN</span>
         <span>NO UNINSTALL</span>
+
         <span>WOOF.EXE</span>
         <span>999 DOGS</span>
         <span>ROBINHOOD CHAIN</span>
@@ -700,14 +839,17 @@ footer strong {
 </div>
 
 
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
     <div class="section-head reveal">
 
         <h2 class="section-title">
-            THE<br>PROGRAM
+            THE<br>
+            PROGRAM
         </h2>
 
         <div class="section-number">
@@ -721,17 +863,23 @@ footer strong {
 
         <div class="about-text">
 
-            <span>WOOF.EXE</span> is a collection of
+            <span>WOOF.EXE</span>
+            is a collection of
             999 unique dogs running permanently
             on Robinhood Chain.
 
         </div>
 
+
         <div class="about-small">
 
-            No complicated mythology.<br>
-            No fake promises.<br>
-            No uninstall button.<br><br>
+            No complicated mythology.
+            <br>
+            No fake promises.
+            <br>
+            No uninstall button.
+
+            <br><br>
 
             Just dogs, code and an executable
             that refuses to stop running.
@@ -799,14 +947,17 @@ footer strong {
 </section>
 
 
-<!-- COLLECTION -->
+<!-- =========================
+     COLLECTION
+========================= -->
 
 <section id="collection">
 
     <div class="section-head reveal">
 
         <h2 class="section-title">
-            THE<br>DOGS
+            THE<br>
+            DOGS
         </h2>
 
         <div class="section-number">
@@ -833,14 +984,17 @@ footer strong {
 </section>
 
 
-<!-- IDENTITY -->
+<!-- =========================
+     IDENTITY
+========================= -->
 
 <section id="identity">
 
     <div class="section-head reveal">
 
         <h2 class="section-title">
-            DIGITAL<br>IDENTITY
+            DIGITAL<br>
+            IDENTITY
         </h2>
 
         <div class="section-number">
@@ -856,7 +1010,10 @@ footer strong {
 
             THE<br>
             DOGS<br>
-            <span>RUN.</span>
+
+            <span>
+                RUN.
+            </span>
 
         </div>
 
@@ -865,45 +1022,82 @@ footer strong {
 
             <div class="identity-row">
 
-                <span>COLLECTION</span>
+                <span>
+                    COLLECTION
+                </span>
 
-                <strong>WOOF.EXE</strong>
-
-            </div>
-
-
-            <div class="identity-row">
-
-                <span>SUPPLY</span>
-
-                <strong>999</strong>
+                <strong>
+                    WOOF.EXE
+                </strong>
 
             </div>
 
 
             <div class="identity-row">
 
-                <span>STANDARD</span>
+                <span>
+                    SUPPLY
+                </span>
 
-                <strong>ERC-721</strong>
-
-            </div>
-
-
-            <div class="identity-row">
-
-                <span>CHAIN</span>
-
-                <strong>Robinhood Chain</strong>
+                <strong>
+                    999
+                </strong>
 
             </div>
 
 
             <div class="identity-row">
 
-                <span>CHAIN ID</span>
+                <span>
+                    STANDARD
+                </span>
 
-                <strong>4663</strong>
+                <strong>
+                    ERC-721
+                </strong>
+
+            </div>
+
+
+            <div class="identity-row">
+
+                <span>
+                    CHAIN
+                </span>
+
+                <strong>
+                    Robinhood Chain
+                </strong>
+
+            </div>
+
+
+            <div class="identity-row">
+
+                <span>
+                    CHAIN ID
+                </span>
+
+                <strong>
+                    4663
+                </strong>
+
+            </div>
+
+
+            <div class="identity-row">
+
+                <span>
+                    X
+                </span>
+
+                <a
+                    href="https://x.com/W00FDOTEXE"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    @W00FDOTEXE ↗
+                </a>
 
             </div>
 
@@ -914,14 +1108,17 @@ footer strong {
 </section>
 
 
-<!-- CONTRACT -->
+<!-- =========================
+     CONTRACT
+========================= -->
 
 <section id="contract">
 
     <div class="section-head reveal">
 
         <h2 class="section-title">
-            ONCHAIN<br>IDENTITY
+            ONCHAIN<br>
+            IDENTITY
         </h2>
 
         <div class="section-number">
@@ -936,6 +1133,9 @@ footer strong {
         <div class="about-text">
 
             WOOF.EXE lives onchain.
+
+            <br><br>
+
             The contract is the permanent
             identity of the collection.
 
@@ -946,7 +1146,9 @@ footer strong {
 
             <div class="identity-row">
 
-                <span>CONTRACT</span>
+                <span>
+                    CONTRACT
+                </span>
 
                 <a
                     href="https://robinhoodchain.blockscout.com/address/0x9590793289f2192a5CDc8F0261917bb17be34d0a"
@@ -961,25 +1163,35 @@ footer strong {
 
             <div class="identity-row">
 
-                <span>NETWORK</span>
+                <span>
+                    NETWORK
+                </span>
 
-                <strong>Robinhood Chain</strong>
-
-            </div>
-
-
-            <div class="identity-row">
-
-                <span>CHAIN ID</span>
-
-                <strong>4663</strong>
+                <strong>
+                    Robinhood Chain
+                </strong>
 
             </div>
 
 
             <div class="identity-row">
 
-                <span>EXPLORER</span>
+                <span>
+                    CHAIN ID
+                </span>
+
+                <strong>
+                    4663
+                </strong>
+
+            </div>
+
+
+            <div class="identity-row">
+
+                <span>
+                    EXPLORER
+                </span>
 
                 <a
                     href="https://robinhoodchain.blockscout.com/address/0x9590793289f2192a5CDc8F0261917bb17be34d0a"
@@ -998,7 +1210,9 @@ footer strong {
 </section>
 
 
-<!-- FINAL -->
+<!-- =========================
+     FINAL
+========================= -->
 
 <section class="final">
 
@@ -1008,14 +1222,23 @@ footer strong {
             PROCESS RUNNING
         </div>
 
+
         <h2>
-            WOOF.<br>EXE
+            WOOF.<br>
+            EXE
         </h2>
 
+
         <p>
-            999 dogs.<br>
-            One executable.<br>
+
+            999 dogs.
+            <br>
+
+            One executable.
+            <br>
+
             No uninstall button.
+
         </p>
 
     </div>
@@ -1023,13 +1246,32 @@ footer strong {
 </section>
 
 
-<!-- FOOTER -->
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
     <div>
-        © 2026 <strong>WOOF.EXE</strong>
+        © 2026
+        <strong>
+            WOOF.EXE
+        </strong>
     </div>
+
+
+    <div>
+
+        <a
+            href="https://x.com/W00FDOTEXE"
+            target="_blank"
+            rel="noopener"
+        >
+            X / @W00FDOTEXE ↗
+        </a>
+
+    </div>
+
 
     <div>
         RUNNING ON ROBINHOOD CHAIN
@@ -1041,143 +1283,39 @@ footer strong {
 <script>
 
 /*
-========================================================
-WOOF.EXE COLLECTION FILES
-========================================================
+=========================================================
+WOOF.EXE NFT LOADER
+=========================================================
+
+FOLDER:
+
+assets/nfts/
+
+FILES:
+
+1.png
+2.png
+3.png
+...
+10.png
+11.png
+...
+100.png
+...
+999.png
 
 IMPORTANT:
 
-The website uses the EXACT filename.
+The filename itself remains the NFT number.
 
-1.png
-10.png
-11.png
-100.png
-101.png
-...
+Example:
 
-There is NO renaming.
+NFT #1   -> assets/nfts/1.png
+NFT #10  -> assets/nfts/10.png
+NFT #100 -> assets/nfts/100.png
 
-The browser only needs the file to exist at:
+No 001.png
+No 010.png
+No 100 renamed
 
-assets/nft/[NUMBER].png
-
-========================================================
-*/
-
-
-const nftGrid = document.getElementById("nftGrid");
-
-
-/*
-    List of NFTs to display.
-
-    These are filenames, NOT generated numbers.
-
-    The first 20 examples intentionally follow
-    the exact filenames supplied for the collection.
-*/
-
-const nftFiles = [
-    "1.png",
-    "10.png",
-    "11.png",
-    "100.png",
-    "101.png",
-    "102.png",
-    "103.png",
-    "104.png",
-    "105.png",
-    "107.png",
-    "108.png",
-    "109.png",
-    "110.png",
-    "111.png",
-    "112.png",
-    "113.png",
-    "114.png",
-    "115.png",
-    "116.png",
-    "117.png"
-];
-
-
-/*
-    Create gallery.
-*/
-
-nftFiles.forEach((file) => {
-
-    const nft = document.createElement("div");
-
-    nft.className = "nft reveal";
-
-
-    /*
-        Extract ID from filename.
-
-        Example:
-        "117.png" -> "117"
-    */
-
-    const id = file.replace(".png", "");
-
-
-    nft.innerHTML = `
-
-        <img
-            src="assets/nft/${file}"
-            alt="WOOF.EXE #${id}"
-            loading="lazy"
-        >
-
-        <div class="nft-id">
-            #${id}
-        </div>
-
-    `;
-
-
-    nftGrid.appendChild(nft);
-
-});
-
-
-/*
-    Reveal animation.
-*/
-
-const observer = new IntersectionObserver(
-    (entries) => {
-
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-                observer.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.08
-    }
-);
-
-
-document
-    .querySelectorAll(".reveal")
-    .forEach((element) => {
-
-        observer.observe(element);
-
-    });
-
-</script>
-
-</body>
-</html>
+==========================
