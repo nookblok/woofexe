@@ -35,22 +35,19 @@ html {
 }
 
 body {
-    background: #080808;
-    color: #f5f5f0;
+    background: var(--bg);
+    color: var(--white);
     font-family: "Space Grotesk", sans-serif;
     overflow-x: hidden;
 }
 
-/* =========================
-   NAV
-========================= */
+/* NAV */
 
 nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-
     height: 72px;
 
     display: flex;
@@ -59,14 +56,14 @@ nav {
 
     padding: 0 5vw;
 
-    background: rgba(8,8,8,.92);
-    border-bottom: 1px solid #252525;
+    background: rgba(8, 8, 8, .94);
+    border-bottom: 1px solid var(--line);
 
     z-index: 1000;
 }
 
 .logo {
-    color: #b7ff00;
+    color: var(--lime);
     text-decoration: none;
 
     font-family: "DM Mono", monospace;
@@ -93,7 +90,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #b7ff00;
+    color: var(--lime);
 }
 
 .status {
@@ -101,7 +98,7 @@ nav {
     align-items: center;
     gap: 8px;
 
-    color: #b7ff00;
+    color: var(--lime);
 
     font-family: "DM Mono", monospace;
     font-size: 10px;
@@ -111,16 +108,13 @@ nav {
     width: 7px;
     height: 7px;
 
-    background: #b7ff00;
-
+    background: var(--lime);
     border-radius: 50%;
 
-    box-shadow: 0 0 12px #b7ff00;
+    box-shadow: 0 0 12px var(--lime);
 }
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero {
     padding-top: 72px;
@@ -143,7 +137,7 @@ nav {
 
     object-fit: cover;
 
-    border: 1px solid #252525;
+    border: 1px solid var(--line);
 }
 
 .hero-content {
@@ -159,7 +153,7 @@ nav {
 .eyebrow {
     margin-bottom: 15px;
 
-    color: #b7ff00;
+    color: var(--lime);
 
     font-family: "DM Mono", monospace;
     font-size: 11px;
@@ -169,9 +163,7 @@ nav {
 
 h1 {
     font-size: clamp(60px, 11vw, 150px);
-
     line-height: .8;
-
     letter-spacing: -7px;
 }
 
@@ -187,24 +179,21 @@ h1 {
 }
 
 .hero-copy strong {
-    color: #f5f5f0;
+    color: var(--white);
 }
 
-/* =========================
-   MARQUEE
-========================= */
+/* MARQUEE */
 
 .marquee {
     overflow: hidden;
-
     white-space: nowrap;
 
     padding: 15px 0;
 
-    border-top: 1px solid #252525;
-    border-bottom: 1px solid #252525;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 
-    color: #b7ff00;
+    color: var(--lime);
 
     font-family: "DM Mono", monospace;
     font-size: 11px;
@@ -212,7 +201,6 @@ h1 {
 
 .marquee-track {
     display: inline-block;
-
     animation: marquee 25s linear infinite;
 }
 
@@ -221,7 +209,6 @@ h1 {
 }
 
 @keyframes marquee {
-
     from {
         transform: translateX(0);
     }
@@ -229,17 +216,13 @@ h1 {
     to {
         transform: translateX(-50%);
     }
-
 }
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 section {
     padding: 120px 5vw;
-
-    border-bottom: 1px solid #252525;
+    border-bottom: 1px solid var(--line);
 }
 
 .section-header {
@@ -252,9 +235,7 @@ section {
 
 .section-title {
     font-size: clamp(40px, 6vw, 80px);
-
     line-height: .88;
-
     letter-spacing: -4px;
 }
 
@@ -265,9 +246,7 @@ section {
     font-size: 10px;
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT */
 
 .about-grid {
     display: grid;
@@ -286,7 +265,7 @@ section {
 }
 
 .about-main span {
-    color: #b7ff00;
+    color: var(--lime);
 }
 
 .about-side {
@@ -298,9 +277,7 @@ section {
     line-height: 1.8;
 }
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats {
     display: grid;
@@ -309,8 +286,8 @@ section {
 
     margin-top: 80px;
 
-    border-top: 1px solid #252525;
-    border-left: 1px solid #252525;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
 }
 
 .stat {
@@ -318,8 +295,8 @@ section {
 
     padding: 25px;
 
-    border-right: 1px solid #252525;
-    border-bottom: 1px solid #252525;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
 }
 
 .stat-label {
@@ -339,12 +316,10 @@ section {
 }
 
 .lime {
-    color: #b7ff00;
+    color: var(--lime);
 }
 
-/* =========================
-   COLLECTION
-========================= */
+/* COLLECTION */
 
 .collection-description {
     max-width: 700px;
@@ -374,9 +349,9 @@ section {
 
     aspect-ratio: 1 / 1;
 
-    background: #101010;
+    background: var(--card);
 
-    border: 1px solid #252525;
+    border: 1px solid var(--line);
 }
 
 .nft img {
@@ -402,19 +377,17 @@ section {
 
     padding: 5px 8px;
 
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, .8);
 
-    color: #b7ff00;
+    color: var(--lime);
 
     font-family: "DM Mono", monospace;
     font-size: 9px;
 
-    border: 1px solid rgba(183,255,0,.3);
+    border: 1px solid rgba(183, 255, 0, .3);
 }
 
-/* =========================
-   IDENTITY
-========================= */
+/* IDENTITY */
 
 .identity-grid {
     display: grid;
@@ -433,7 +406,7 @@ section {
 }
 
 .identity-big span {
-    color: #b7ff00;
+    color: var(--lime);
 }
 
 .info {
@@ -451,19 +424,17 @@ section {
 
     padding: 16px 0;
 
-    border-bottom: 1px solid #252525;
+    border-bottom: 1px solid var(--line);
 }
 
 .info-row strong {
-    color: #f5f5f0;
-
+    color: var(--white);
     font-weight: 400;
-
     text-align: right;
 }
 
 .info-row a {
-    color: #b7ff00;
+    color: var(--lime);
 
     text-decoration: none;
 
@@ -476,9 +447,7 @@ section {
     text-decoration: underline;
 }
 
-/* =========================
-   FINAL
-========================= */
+/* FINAL */
 
 .final {
     min-height: 65vh;
@@ -493,7 +462,7 @@ section {
 .final-small {
     margin-bottom: 25px;
 
-    color: #b7ff00;
+    color: var(--lime);
 
     font-family: "DM Mono", monospace;
     font-size: 11px;
@@ -520,9 +489,7 @@ section {
     line-height: 1.8;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer {
     padding: 25px 5vw;
@@ -542,12 +509,11 @@ footer {
 }
 
 footer strong {
-    color: #b7ff00;
+    color: var(--lime);
 }
 
 footer a {
-    color: #b7ff00;
-
+    color: var(--lime);
     text-decoration: none;
 }
 
@@ -555,9 +521,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 800px) {
 
@@ -596,13 +560,11 @@ footer a:hover {
     .about-grid,
     .identity-grid {
         grid-template-columns: 1fr;
-
         gap: 40px;
     }
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
-
         margin-top: 55px;
     }
 
@@ -616,7 +578,6 @@ footer a:hover {
 
     .collection-grid {
         grid-template-columns: repeat(2, 1fr);
-
         gap: 6px;
     }
 
@@ -626,7 +587,6 @@ footer a:hover {
 
     footer {
         flex-direction: column;
-
         align-items: flex-start;
     }
 
@@ -635,13 +595,9 @@ footer a:hover {
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAV -->
 
 <nav>
 
@@ -668,7 +624,7 @@ footer a:hover {
         </a>
 
         <a
-            href="https://opensea.io/collection/odd-boi-official"
+            href="https://opensea.io/collection/woof-exe"
             target="_blank"
             rel="noopener"
         >
@@ -696,9 +652,7 @@ footer a:hover {
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <header class="hero">
 
@@ -750,9 +704,7 @@ footer a:hover {
 </header>
 
 
-<!-- =========================
-     MARQUEE
-========================= -->
+<!-- MARQUEE -->
 
 <div class="marquee">
 
@@ -778,9 +730,7 @@ footer a:hover {
 </div>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
@@ -886,9 +836,7 @@ footer a:hover {
 </section>
 
 
-<!-- =========================
-     COLLECTION
-========================= -->
+<!-- COLLECTION -->
 
 <section id="collection">
 
@@ -917,120 +865,100 @@ footer a:hover {
 
     <div class="collection-grid">
 
-
         <div class="nft">
             <img src="assets/nfts/1.png" alt="WOOF.EXE #1">
             <div class="nft-number">#1</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/10.png" alt="WOOF.EXE #10">
             <div class="nft-number">#10</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/11.png" alt="WOOF.EXE #11">
             <div class="nft-number">#11</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/100.png" alt="WOOF.EXE #100">
             <div class="nft-number">#100</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/101.png" alt="WOOF.EXE #101">
             <div class="nft-number">#101</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/102.png" alt="WOOF.EXE #102">
             <div class="nft-number">#102</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/103.png" alt="WOOF.EXE #103">
             <div class="nft-number">#103</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/104.png" alt="WOOF.EXE #104">
             <div class="nft-number">#104</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/105.png" alt="WOOF.EXE #105">
             <div class="nft-number">#105</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/107.png" alt="WOOF.EXE #107">
             <div class="nft-number">#107</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/108.png" alt="WOOF.EXE #108">
             <div class="nft-number">#108</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/109.png" alt="WOOF.EXE #109">
             <div class="nft-number">#109</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/110.png" alt="WOOF.EXE #110">
             <div class="nft-number">#110</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/111.png" alt="WOOF.EXE #111">
             <div class="nft-number">#111</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/112.png" alt="WOOF.EXE #112">
             <div class="nft-number">#112</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/113.png" alt="WOOF.EXE #113">
             <div class="nft-number">#113</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/114.png" alt="WOOF.EXE #114">
             <div class="nft-number">#114</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/115.png" alt="WOOF.EXE #115">
             <div class="nft-number">#115</div>
         </div>
 
-
         <div class="nft">
             <img src="assets/nfts/116.png" alt="WOOF.EXE #116">
             <div class="nft-number">#116</div>
         </div>
-
 
         <div class="nft">
             <img src="assets/nfts/117.png" alt="WOOF.EXE #117">
@@ -1042,9 +970,7 @@ footer a:hover {
 </section>
 
 
-<!-- =========================
-     IDENTITY
-========================= -->
+<!-- IDENTITY -->
 
 <section id="identity">
 
@@ -1083,37 +1009,32 @@ footer a:hover {
                 <strong>WOOF.EXE</strong>
             </div>
 
-
             <div class="info-row">
                 <span>SUPPLY</span>
                 <strong>999</strong>
             </div>
-
 
             <div class="info-row">
                 <span>STANDARD</span>
                 <strong>ERC-721</strong>
             </div>
 
-
             <div class="info-row">
                 <span>CHAIN</span>
                 <strong>Robinhood Chain</strong>
             </div>
-
 
             <div class="info-row">
                 <span>CHAIN ID</span>
                 <strong>4663</strong>
             </div>
 
-
             <div class="info-row">
 
                 <span>OPENSEA</span>
 
                 <a
-                    href="https://opensea.io/collection/odd-boi-official"
+                    href="https://opensea.io/collection/woof-exe"
                     target="_blank"
                     rel="noopener"
                 >
@@ -1121,7 +1042,6 @@ footer a:hover {
                 </a>
 
             </div>
-
 
             <div class="info-row">
 
@@ -1144,9 +1064,7 @@ footer a:hover {
 </section>
 
 
-<!-- =========================
-     CONTRACT
-========================= -->
+<!-- CONTRACT -->
 
 <section id="contract">
 
@@ -1187,7 +1105,7 @@ footer a:hover {
                 </span>
 
                 <a
-                    href="https://robinhoodchain.blockscout.com/address/0x9590793289f2192a5CDc8F0261917bb17be34d0a"
+                    href="https://robin.etherscan.io/address/0x9590793289f2192a5cdc8f0261917bb17be34d0a"
                     target="_blank"
                     rel="noopener"
                 >
@@ -1227,4 +1145,67 @@ footer a:hover {
 
                 <span>
                     EXPLORER
-        
+                </span>
+
+                <a
+                    href="https://robin.etherscan.io/address/0x9590793289f2192a5cdc8f0261917bb17be34d0a"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    VIEW CONTRACT ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div>
+
+        <div class="final-small">
+            PROCESS RUNNING
+        </div>
+
+        <h2>
+            WOOF.<br>
+            EXE
+        </h2>
+
+        <p>
+            999 dogs.
+            <br>
+            One executable.
+            <br>
+            No uninstall button.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026
+        <strong>WOOF.EXE</strong>
+    </div>
+
+
+    <div>
+
+        <a
+            href="https://opensea.io/collection/woof-exe"
+            target="_blank"
+            rel="noopener"
+   
