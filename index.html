@@ -1,1149 +1,593 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#923A3A">
-
-<title>WOOF.EXE — 999 Dogs. One Executable.</title>
-
-<meta
-  name="description"
-  content="999 dogs. One executable. No uninstall button. WOOF.EXE is running on Robinhood Chain."
->
-
-<style>
-
-:root{
-  --brick:#923A3A;
-  --pink:#D6888A;
-  --lime:#C4F407;
-  --ink:#0F0A19;
-  --maroon:#320812;
-  --cream:#FFF4E8;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--ink);
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--pink) 0%,
-      var(--brick) 100%
-    );
-
-  min-height:100vh;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-button{
-  font-family:inherit;
-}
-
-.wrap{
-  width:min(1100px,92%);
-  margin:auto;
-}
-
-
-/* =========================================
-   NAVIGATION
-========================================= */
-
-nav{
-  position:sticky;
-  top:0;
-  z-index:50;
-
-  background:rgba(15,10,25,.97);
-
-  border-bottom:
-    3px solid var(--lime);
-
-  backdrop-filter:blur(10px);
-}
-
-.nav{
-  min-height:70px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:16px;
-}
-
-.logo{
-  height:48px;
-  width:auto;
-
-  display:block;
-
-  object-fit:contain;
-}
-
-.navlinks{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.navlinks a{
-  color:#fff;
-
-  font-size:13px;
-  font-weight:900;
-
-  text-transform:uppercase;
-}
-
-
-/* =========================================
-   BUTTONS
-========================================= */
-
-.btn{
-  min-height:52px;
-
-  padding:
-    0 22px;
-
-  display:inline-flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border:
-    3px solid var(--ink);
-
-  border-radius:12px;
-
-  background:var(--lime);
-  color:var(--ink);
-
-  box-shadow:
-    6px 6px 0 var(--maroon);
-
-  font-weight:1000;
-
-  text-transform:uppercase;
-
-  cursor:pointer;
-
-  transition:
-    .15s ease;
-}
-
-.btn:hover{
-  transform:
-    translate(3px,3px);
-
-  box-shadow:
-    3px 3px 0 var(--maroon);
-}
-
-.btn.dark{
-  background:var(--ink);
-  color:#fff;
-
-  border-color:
-    var(--lime);
-}
-
-.btn:disabled{
-  opacity:.45;
-
-  cursor:not-allowed;
-
-  transform:none;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero{
-  padding:
-    25px 0 65px;
-}
-
-.banner{
-  width:100%;
-
-  display:block;
-
-  border:
-    4px solid var(--ink);
-
-  border-radius:24px;
-
-  box-shadow:
-    12px 12px 0 var(--maroon);
-}
-
-.heroText{
-  text-align:center;
-
-  padding:
-    42px 10px 0;
-}
-
-.heroLogo{
-  width:
-    min(430px,82%);
-
-  margin:
-    0 auto 20px;
-
-  display:block;
-}
-
-.tagline{
-  margin:
-    0 auto 28px;
-
-  max-width:850px;
-
-  font-size:
-    clamp(20px,3vw,31px);
-
-  font-weight:1000;
-
-  line-height:1.05;
-}
-
-.actions{
-  display:flex;
-
-  justify-content:center;
-
-  flex-wrap:wrap;
-
-  gap:14px;
-}
-
-
-/* =========================================
-   ABOUT
-========================================= */
-
-section{
-  padding:
-    75px 0;
-}
-
-.about{
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:25px;
-}
-
-.card{
-  background:
-    rgba(255,244,232,.78);
-
-  border:
-    4px solid var(--ink);
-
-  border-radius:20px;
-
-  padding:28px;
-
-  box-shadow:
-    9px 9px 0 var(--maroon);
-}
-
-.title{
-  margin:
-    0 0 22px;
-
-  font-size:
-    clamp(40px,7vw,70px);
-
-  line-height:.9;
-
-  letter-spacing:-4px;
-
-  font-weight:1000;
-
-  text-shadow:
-    5px 5px 0 var(--cream);
-}
-
-.card p{
-  font-size:18px;
-
-  line-height:1.5;
-
-  font-weight:700;
-}
-
-.terminal{
-  margin-top:22px;
-
-  background:var(--ink);
-
-  color:var(--lime);
-
-  border:
-    3px solid var(--lime);
-
-  border-radius:12px;
-
-  padding:16px;
-
-  font:
-    800 14px/1.7 monospace;
-}
-
-
-/* =========================================
-   MINT SECTION
-========================================= */
-
-.mint{
-  background:
-    rgba(15,10,25,.96);
-
-  color:#fff;
-
-  border-top:
-    4px solid var(--lime);
-
-  border-bottom:
-    4px solid var(--lime);
-}
-
-.mintTitle{
-  color:var(--lime);
-
-  text-align:center;
-
-  text-shadow:
-    5px 5px 0 var(--maroon);
-}
-
-.sub{
-  max-width:700px;
-
-  margin:
-    0 auto 30px;
-
-  text-align:center;
-
-  font-size:17px;
-
-  font-weight:700;
-
-  opacity:.85;
-}
-
-
-/* =========================================
-   WALLET
-========================================= */
-
-.walletRow{
-  display:flex;
-
-  justify-content:center;
-
-  margin-bottom:15px;
-}
-
-.wallet{
-  min-width:240px;
-}
-
-.walletAddress{
-  min-height:20px;
-
-  margin:
-    0 auto 28px;
-
-  text-align:center;
-
-  color:var(--lime);
-
-  font:
-    800 13px monospace;
-
-  word-break:break-all;
-}
-
-
-/* =========================================
-   MINT GRID
-========================================= */
-
-.mintGrid{
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:22px;
-
-  max-width:900px;
-
-  margin:auto;
-}
-
-.mintCard{
-  background:#17111d;
-
-  border:
-    3px solid var(--lime);
-
-  border-radius:18px;
-
-  padding:28px;
-
-  text-align:center;
-
-  box-shadow:
-    7px 7px 0 var(--maroon);
-}
-
-.number{
-  color:var(--lime);
-
-  font-size:
-    clamp(55px,9vw,88px);
-
-  line-height:.85;
-
-  font-weight:1000;
-}
-
-.name{
-  margin-top:16px;
-
-  font-size:21px;
-
-  font-weight:1000;
-
-  text-transform:uppercase;
-}
-
-.price{
-  margin-top:7px;
-
-  font-size:25px;
-
-  font-weight:1000;
-}
-
-.limit{
-  margin-top:7px;
-
-  font-size:12px;
-
-  font-weight:800;
-
-  opacity:.65;
-}
-
-
-/* =========================================
-   QUANTITY
-========================================= */
-
-.quantity{
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  margin:
-    20px auto;
-
-  max-width:220px;
-}
-
-.quantity button{
-  width:50px;
-  height:50px;
-
-  border:
-    3px solid var(--lime);
-
-  background:transparent;
-
-  color:var(--lime);
-
-  font-size:26px;
-
-  font-weight:1000;
-
-  cursor:pointer;
-}
-
-.quantityValue{
-  width:80px;
-  height:50px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-top:
-    3px solid var(--lime);
-
-  border-bottom:
-    3px solid var(--lime);
-
-  font-size:22px;
-
-  font-weight:1000;
-}
-
-.mintButton{
-  width:100%;
-}
-
-
-/* =========================================
-   STATUS
-========================================= */
-
-.status{
-  max-width:900px;
-
-  min-height:48px;
-
-  margin:
-    25px auto 0;
-
-  padding:
-    14px 18px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-
-  border:
-    2px solid rgba(196,244,7,.4);
-
-  border-radius:12px;
-
-  color:#fff;
-
-  font:
-    700 13px/1.4 monospace;
-}
-
-.status.ok{
-  color:var(--lime);
-
-  border-color:
-    var(--lime);
-}
-
-.status.error{
-  color:#ffb0b0;
-
-  border-color:
-    #ff7777;
-}
-
-
-/* =========================================
-   CTA
-========================================= */
-
-.cta{
-  text-align:center;
-
-  background:var(--lime);
-
-  border-top:
-    4px solid var(--ink);
-
-  border-bottom:
-    4px solid var(--ink);
-}
-
-.cta h2{
-  margin:
-    0 0 18px;
-
-  font-size:
-    clamp(42px,8vw,86px);
-
-  line-height:.9;
-
-  letter-spacing:-5px;
-}
-
-.cta p{
-  max-width:650px;
-
-  margin:
-    0 auto 25px;
-
-  font-size:19px;
-
-  font-weight:800;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer{
-  background:var(--ink);
-
-  color:#fff;
-
-  padding:
-    28px 0;
-}
-
-.footer{
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  gap:20px;
-}
-
-.footer strong{
-  color:var(--lime);
-
-  font-size:25px;
-}
-
-.footer span{
-  opacity:.6;
-
-  font-size:12px;
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media(max-width:800px){
-
-  .about{
-    grid-template-columns:1fr;
-  }
-
-  .mintGrid{
-    grid-template-columns:1fr;
-  }
-
-  .navlinks a:not(.openSea){
-    display:none;
-  }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media(max-width:520px){
-
-  .nav{
-    min-height:62px;
-  }
-
-  .logo{
-    height:40px;
-  }
-
-  .hero{
-    padding-top:16px;
-  }
-
-  .banner{
-    border-radius:16px;
-  }
-
-  .actions{
-    display:grid;
-  }
-
-  .actions .btn{
-    width:100%;
-  }
-
-  .mintCard{
-    padding:22px;
-  }
-
-  .footer{
-    flex-direction:column;
-
-    align-items:flex-start;
-  }
-
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WOOF.EXE — 999 Dogs</title>
+
+  <style>
+    :root {
+      --brick: #923A3A;
+      --pink: #D6888A;
+      --lime: #C4F407;
+      --ink: #0F0A19;
+      --maroon: #320812;
+      --cream: #FFF4E8;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--ink);
+      color: var(--cream);
+      min-height: 100vh;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 10, 25, 0.95);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .nav-logo {
+      height: 42px;
+      width: auto;
+      display: block;
+    }
+
+    .connect-btn {
+      border: 0;
+      background: var(--lime);
+      color: var(--ink);
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 900;
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .connect-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1180px;
+      margin: auto;
+      padding: 45px 20px 30px;
+    }
+
+    .hero-banner {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      border: 2px solid rgba(255,255,255,.08);
+    }
+
+    .hero-content {
+      padding: 38px 0 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 92px);
+      line-height: .9;
+      letter-spacing: -5px;
+      color: var(--lime);
+      font-weight: 1000;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 22px auto;
+      color: #eadfe0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .hero-mint {
+      display: inline-block;
+      background: var(--lime);
+      color: var(--ink);
+      border: 0;
+      border-radius: 12px;
+      padding: 16px 25px;
+      font-weight: 1000;
+      font-size: 15px;
+    }
+
+    /* MINT */
+    .mint-section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 55px 20px 90px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 6vw, 58px);
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+
+    .wallet-status {
+      text-align: center;
+      margin: 15px auto 30px;
+      padding: 13px 16px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+      color: #ddd;
+      max-width: 700px;
+      word-break: break-word;
+    }
+
+    .mint-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .mint-card {
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 18px;
+      padding: 28px;
+      border: 3px solid transparent;
+    }
+
+    .mint-card.free {
+      border-color: var(--lime);
+    }
+
+    .mint-card h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .mint-count {
+      font-size: 14px;
+      opacity: .65;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: 1000;
+      margin-bottom: 20px;
+    }
+
+    .quantity-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .qty-btn {
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .qty-number {
+      min-width: 40px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .mint-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 11px;
+      padding: 15px;
+      background: var(--ink);
+      color: var(--cream);
+      font-weight: 1000;
+      transition: .2s;
+    }
+
+    .mint-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+    }
+
+    .mint-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+
+    .mint-note {
+      text-align: center;
+      color: #a99ea0;
+      font-size: 13px;
+      margin-top: 18px;
+      line-height: 1.5;
+    }
+
+    .tx-link {
+      display: none;
+      margin: 18px auto 0;
+      width: fit-content;
+      background: var(--lime);
+      color: var(--ink);
+      padding: 11px 17px;
+      border-radius: 9px;
+      font-weight: 900;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+      padding: 30px 20px;
+      color: #8f8587;
+      font-size: 13px;
+    }
+
+    /* WALLET MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .wallet-modal {
+      width: min(460px, 100%);
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+
+    .wallet-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .wallet-modal-head h3 {
+      font-size: 25px;
+    }
+
+    .close-modal {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 9px;
+      background: #e5d9da;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .wallet-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .wallet-option {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid #ddd0d1;
+      background: white;
+      border-radius: 12px;
+      color: var(--ink);
+      text-align: left;
+      font-weight: 900;
+    }
+
+    .wallet-option:hover {
+      border-color: var(--lime);
+      background: #fbffe9;
+    }
+
+    .wallet-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      object-fit: contain;
+      background: #f2eeee;
+      padding: 5px;
+    }
+
+    .wallet-name {
+      flex: 1;
+    }
+
+    .wallet-arrow {
+      opacity: .45;
+    }
+
+    .no-wallet {
+      padding: 15px;
+      background: #f0e7e8;
+      border-radius: 10px;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .modal-help {
+      margin-top: 15px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #74686a;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .nav-inner {
+        padding: 13px 15px;
+      }
+
+      .nav-logo {
+        max-width: 130px;
+        height: auto;
+      }
+
+      .connect-btn {
+        padding: 10px 13px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 25px 14px;
+      }
+
+      .hero h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .mint-section {
+        padding: 40px 14px 70px;
+      }
+
+      .mint-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mint-card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-<!-- =========================================
-     NAVIGATION
-========================================= -->
-
-<nav>
-
-  <div class="wrap nav">
-
-    <a href="#top">
-
-      <img
-        src="assets/woof-exe-logo.png"
-        class="logo"
-        alt="WOOF.EXE"
-      >
-
-    </a>
-
-
-    <div class="navlinks">
-
-      <a href="#about">
-        About
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#">
+        <img
+          class="nav-logo"
+          src="assets/woof-exe-logo.png"
+          alt="WOOF.EXE"
+        />
       </a>
 
-      <a href="#mint">
-        Mint
-      </a>
-
-      <a
-        href="https://opensea.io/collection/woof-exe"
-        target="_blank"
-        rel="noopener"
-        class="btn openSea"
-      >
-        OpenSea
-      </a>
-
-    </div>
-
-  </div>
-
-</nav>
-
-
-<main id="top">
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
-<header class="hero">
-
-  <div class="wrap">
-
-    <img
-      src="assets/woof-exe-opensea-banner.png"
-      class="banner"
-      alt="WOOF.EXE"
-    >
-
-
-    <div class="heroText">
-
-      <img
-        src="assets/woof-exe-logo.png"
-        class="heroLogo"
-        alt="WOOF.EXE"
-      >
-
-
-      <p class="tagline">
-        999 dogs. One executable. No uninstall button.
-      </p>
-
-
-      <div class="actions">
-
-        <a
-          href="#mint"
-          class="btn"
-        >
-          Mint WOOF.EXE
-        </a>
-
-
-        <a
-          href="https://opensea.io/collection/woof-exe"
-          target="_blank"
-          rel="noopener"
-          class="btn dark"
-        >
-          View on OpenSea
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-<!-- =========================================
-     ABOUT
-========================================= -->
-
-<section id="about">
-
-  <div class="wrap about">
-
-
-    <div class="card">
-
-      <h2 class="title">
-        THE EXECUTABLE
-      </h2>
-
-      <p>
-        999 unique dogs running on Robinhood Chain.
-        Different looks. Different personalities.
-        One executable.
-      </p>
-
-
-      <div class="terminal">
-
-        &gt; booting WOOF.EXE...<br>
-        &gt; loading 999 dogs...<br>
-        &gt; status: RUNNING<br>
-        &gt; uninstall: NOT FOUND
-
-      </div>
-
-    </div>
-
-
-    <div class="card">
-
-      <h2 class="title">
-        WOOF.EXE
-      </h2>
-
-      <p>
-        One collection. 999 dogs.
-        Built to run on Robinhood Chain.
-      </p>
-
-      <p>
-        Connect your wallet and mint
-        directly from this website.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     MINT
-========================================= -->
-
-<section
-  class="mint"
-  id="mint"
->
-
-  <div class="wrap">
-
-
-    <h2 class="title mintTitle">
-      MINT WOOF.EXE
-    </h2>
-
-
-    <p class="sub">
-      Connect your wallet, choose your mint phase,
-      select your quantity, and confirm the transaction.
-    </p>
-
-
-    <!-- CONNECT WALLET -->
-
-    <div class="walletRow">
-
-      <button
-        id="connectBtn"
-        class="btn wallet"
-      >
-        Connect Wallet
+      <button id="connectBtn" class="connect-btn">
+        CONNECT WALLET
       </button>
+    </div>
+  </nav>
 
+  <!-- HERO -->
+  <section class="hero">
+    <img
+      class="hero-banner"
+      src="assets/woof-exe-opensea-banner.png"
+      alt="WOOF.EXE"
+    />
+
+    <div class="hero-content">
+      <h1>WOOF.EXE</h1>
+
+      <p>
+        999 dogs. One executable. No uninstall button.
+        WOOF.EXE is running on Robinhood Chain.
+      </p>
+
+      <button class="hero-mint" onclick="document.getElementById('mint').scrollIntoView()">
+        MINT WOOF.EXE
+      </button>
+    </div>
+  </section>
+
+  <!-- MINT -->
+  <section id="mint" class="mint-section">
+
+    <div class="section-title">
+      <h2>MINT</h2>
     </div>
 
+    <div id="walletStatus" class="wallet-status">
+      Connect your wallet to begin.
+    </div>
 
-    <div
-      id="walletAddress"
-      class="walletAddress"
-    ></div>
+    <div class="mint-grid">
 
+      <!-- FREE -->
+      <div class="mint-card free">
+        <h3>Free Mint</h3>
 
-    <!-- =====================================
-         MINT CARDS
-    ====================================== -->
-
-    <div class="mintGrid">
-
-
-      <!-- FREE MINT -->
-
-      <div class="mintCard">
-
-        <div class="number">
-          333
-        </div>
-
-        <div class="name">
-          Free Mint
+        <div class="mint-count">
+          333 NFTs available
         </div>
 
         <div class="price">
           FREE
         </div>
 
-        <div class="limit">
-          333 AVAILABLE
+        <div class="quantity-row">
+          <button class="qty-btn" onclick="changeQty('free', -1)">−</button>
+          <div id="freeQty" class="qty-number">1</div>
+          <button class="qty-btn" onclick="changeQty('free', 1)">+</button>
         </div>
-
-
-        <div class="quantity">
-
-          <button
-            type="button"
-            onclick="changeQty('free',-1)"
-          >
-            −
-          </button>
-
-
-          <div
-            class="quantityValue"
-            id="freeQty"
-          >
-            1
-          </div>
-
-
-          <button
-            type="button"
-            onclick="changeQty('free',1)"
-          >
-            +
-          </button>
-
-        </div>
-
 
         <button
-          type="button"
           id="freeMintBtn"
-          class="btn mintButton"
+          class="mint-btn"
           onclick="mint('free')"
+          disabled
         >
-          MINT FREE
+          CONNECT WALLET
         </button>
-
       </div>
 
+      <!-- PUBLIC -->
+      <div class="mint-card">
+        <h3>Public Mint</h3>
 
-      <!-- PUBLIC MINT -->
-
-      <div class="mintCard">
-
-        <div class="number">
-          666
-        </div>
-
-        <div class="name">
-          Public Mint
+        <div class="mint-count">
+          666 NFTs available
         </div>
 
         <div class="price">
           0.00015 ETH
         </div>
 
-        <div class="limit">
-          666 AVAILABLE
+        <div class="quantity-row">
+          <button class="qty-btn" onclick="changeQty('public', -1)">−</button>
+          <div id="publicQty" class="qty-number">1</div>
+          <button class="qty-btn" onclick="changeQty('public', 1)">+</button>
         </div>
-
-
-        <div class="quantity">
-
-          <button
-            type="button"
-            onclick="changeQty('public',-1)"
-          >
-            −
-          </button>
-
-
-          <div
-            class="quantityValue"
-            id="publicQty"
-          >
-            1
-          </div>
-
-
-          <button
-            type="button"
-            onclick="changeQty('public',1)"
-          >
-            +
-          </button>
-
-
-        </div>
-
 
         <button
-          type="button"
           id="publicMintBtn"
-          class="btn mintButton"
+          class="mint-btn"
           onclick="mint('public')"
+          disabled
         >
-          MINT NOW
+          CONNECT WALLET
         </button>
-
       </div>
 
     </div>
 
+    <div id="txLink" class="tx-link"></div>
 
-    <!-- STATUS -->
+    <div class="mint-note">
+      Your wallet will ask you to confirm the transaction.
+    </div>
 
-    <div
-      id="status"
-      class="status"
-    >
-      Connect your wallet to begin.
+  </section>
+
+  <footer>
+    WOOF.EXE © 2026 — Running on Robinhood Chain
+  </footer>
+
+
+  <!-- WALLET MODAL -->
+  <div id="walletModal" class="modal-overlay">
+
+    <div class="wallet-modal">
+
+      <div class="wallet-modal-head">
+        <h3>Connect Wallet</h3>
+
+        <button
+          id="closeWalletModal"
+          class="close-modal"
+        >
+          ×
+        </button>
+      </div>
+
+      <div id="walletList" class="wallet-list">
+        <div class="no-wallet">
+          Detecting wallets...
+        </div>
+      </div>
+
+      <div class="modal-help">
+        On mobile, if your wallet does not appear in Chrome,
+        open this website inside your wallet's built-in browser.
+      </div>
+
     </div>
 
   </div>
 
-</section>
-
-
-<!-- =========================================
-     CTA
-========================================= -->
-
-<section class="cta">
-
-  <div class="wrap">
-
-    <h2>
-      NO UNINSTALL BUTTON.
-    </h2>
-
-    <p>
-      WOOF.EXE is running.
-      Get your dog into the executable.
-    </p>
-
-
-    <a
-      href="#mint"
-      class="btn"
-    >
-      Enter WOOF.EXE
-    </a>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer>
-
-  <div class="wrap footer">
-
-    <strong>
-      WOOF.EXE
-    </strong>
-
-    <span>
-      © 2026 WOOF.EXE · 999 dogs on Robinhood Chain
-    </span>
-
-  </div>
-
-</footer>
-
 
 <script>
-
-/* =========================================
+/* =========================================================
    WOOF.EXE CONFIG
-========================================= */
+========================================================= */
 
 const CONFIG = {
-
-  collectionSlug:
-    "woof-exe",
+  collectionSlug: "woof-exe",
 
   collectionAddress:
     "0x9590793289f2192a5CDc8F0261917bb17be34d0a",
 
-  chainId:
-    4663,
+  chainId: 4663,
 
-  chainHex:
-    "0x1237",
+  chainHex: "0x1237",
 
-  rpc:
+  chainName: "Robinhood Chain",
+
+  rpcUrl:
     "https://rpc.mainnet.chain.robinhood.com",
 
   explorer:
@@ -1151,441 +595,499 @@ const CONFIG = {
 
   api:
     "https://api.scatter.art/v1"
-
 };
 
 
-/* =========================================
+/* =========================================================
    STATE
-========================================= */
+========================================================= */
 
-const quantity = {
+let selectedProvider = null;
+let selectedWalletName = "";
+let selectedAddress = null;
 
-  free:1,
+let discoveredWallets = [];
 
-  public:1
-
+let quantities = {
+  free: 1,
+  public: 1
 };
 
-let provider = null;
 
-let account = null;
-
-let mintLists = [];
-
-
-/* =========================================
-   DOM
-========================================= */
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
 const connectBtn =
-  document.getElementById(
-    "connectBtn"
-  );
+  document.getElementById("connectBtn");
 
-const walletAddress =
-  document.getElementById(
-    "walletAddress"
-  );
+const walletStatus =
+  document.getElementById("walletStatus");
 
-const statusBox =
-  document.getElementById(
-    "status"
-  );
+const walletModal =
+  document.getElementById("walletModal");
 
+const walletList =
+  document.getElementById("walletList");
 
-/* =========================================
-   STATUS
-========================================= */
+const closeWalletModal =
+  document.getElementById("closeWalletModal");
 
-function setStatus(
-  message,
-  type=""
-){
+const freeMintBtn =
+  document.getElementById("freeMintBtn");
 
-  statusBox.textContent =
-    message;
+const publicMintBtn =
+  document.getElementById("publicMintBtn");
 
-  statusBox.className =
-    "status " + type;
-
-}
+const txLink =
+  document.getElementById("txLink");
 
 
-/* =========================================
-   ERROR
-========================================= */
+/* =========================================================
+   EIP-6963 WALLET DISCOVERY
+========================================================= */
 
-function getErrorMessage(error){
+window.addEventListener(
+  "eip6963:announceProvider",
+  (event) => {
 
-  let message =
-    error?.message ||
-    String(error);
+    const detail = event.detail;
 
-  message =
-    message.replace(
-      /^Error:\s*/,
-      ""
+    if (!detail || !detail.provider) {
+      return;
+    }
+
+    const exists = discoveredWallets.some(
+      item =>
+        item.info &&
+        detail.info &&
+        item.info.uuid === detail.info.uuid
     );
 
-  if(
-    message
-      .toLowerCase()
-      .includes(
-        "user rejected"
-      )
-  ){
+    if (!exists) {
+      discoveredWallets.push(detail);
+    }
 
-    return "Transaction cancelled.";
-
+    renderWallets();
   }
-
-  if(
-    message.length > 240
-  ){
-
-    return (
-      message.substring(
-        0,
-        237
-      )
-      + "..."
-    );
-
-  }
-
-  return message;
-
-}
+);
 
 
-/* =========================================
-   SHORT ADDRESS
-========================================= */
+/*
+  Ask wallets to announce themselves.
+*/
+function discoverWallets() {
 
-function shortAddress(
-  address
-){
+  discoveredWallets = [];
 
-  if(!address){
-    return "";
-  }
-
-  return (
-    address.substring(0,6)
-    +
-    "..."
-    +
-    address.substring(
-      address.length - 4
-    )
+  window.dispatchEvent(
+    new Event("eip6963:requestProvider")
   );
 
+  /*
+    Fallback for older injected wallets.
+  */
+  setTimeout(() => {
+
+    if (
+      discoveredWallets.length === 0 &&
+      window.ethereum
+    ) {
+
+      if (Array.isArray(window.ethereum.providers)) {
+
+        window.ethereum.providers.forEach(
+          (provider, index) => {
+
+            if (!provider) return;
+
+            discoveredWallets.push({
+              info: {
+                uuid:
+                  "legacy-" + index,
+
+                name:
+                  provider.isMetaMask
+                    ? "MetaMask"
+                    : "Browser Wallet",
+
+                icon:
+                  ""
+              },
+
+              provider
+            });
+
+          }
+        );
+
+      } else {
+
+        discoveredWallets.push({
+          info: {
+            uuid: "legacy-default",
+
+            name:
+              window.ethereum.isMetaMask
+                ? "MetaMask"
+                : "Browser Wallet",
+
+            icon: ""
+          },
+
+          provider:
+            window.ethereum
+        });
+      }
+
+      renderWallets();
+    }
+
+  }, 700);
 }
 
 
-/* =========================================
-   QUANTITY
-========================================= */
+/* =========================================================
+   WALLET MODAL
+========================================================= */
 
-function changeQty(
-  type,
-  amount
-){
+function openWalletModal() {
 
-  quantity[type] =
-    Math.max(
-      1,
-      Math.min(
-        20,
-        quantity[type] + amount
-      )
-    );
+  walletModal.classList.add("show");
 
+  walletList.innerHTML =
+    '<div class="no-wallet">Detecting wallets...</div>';
 
-  document.getElementById(
-    type + "Qty"
-  ).textContent =
-    quantity[type];
+  discoverWallets();
 
+  setTimeout(() => {
+
+    if (discoveredWallets.length === 0) {
+
+      walletList.innerHTML = `
+        <div class="no-wallet">
+          No compatible injected wallet was detected.<br><br>
+          On mobile, open this website inside your wallet's
+          built-in browser.
+        </div>
+      `;
+
+    }
+
+  }, 1000);
 }
 
 
-/* =========================================
-   GET WALLET
-========================================= */
+function closeWalletSelector() {
 
-async function getWallet(){
+  walletModal.classList.remove("show");
+}
 
-  if(
-    !window.ethereum
-  ){
 
-    throw new Error(
-      "No wallet detected. Open the website inside your wallet browser."
-    );
+connectBtn.addEventListener(
+  "click",
+  openWalletModal
+);
+
+closeWalletModal.addEventListener(
+  "click",
+  closeWalletSelector
+);
+
+walletModal.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === walletModal) {
+      closeWalletSelector();
+    }
 
   }
+);
 
-  provider =
-    window.ethereum;
 
-  return provider;
+/* =========================================================
+   RENDER WALLETS
+========================================================= */
 
+function renderWallets() {
+
+  if (!discoveredWallets.length) {
+    return;
+  }
+
+  walletList.innerHTML = "";
+
+  discoveredWallets.forEach(
+    (wallet, index) => {
+
+      const info = wallet.info || {};
+
+      const button =
+        document.createElement("button");
+
+      button.className =
+        "wallet-option";
+
+      const icon =
+        info.icon ||
+        "";
+
+      button.innerHTML = `
+
+        ${
+          icon
+            ? `<img
+                class="wallet-icon"
+                src="${escapeHtml(icon)}"
+                alt=""
+              >`
+            : `<div class="wallet-icon"></div>`
+        }
+
+        <span class="wallet-name">
+          ${escapeHtml(info.name || "Wallet")}
+        </span>
+
+        <span class="wallet-arrow">
+          →
+        </span>
+      `;
+
+      button.onclick = () =>
+        connectWallet(wallet);
+
+      walletList.appendChild(button);
+    }
+  );
 }
 
 
-/* =========================================
-   SWITCH NETWORK
-========================================= */
+/* =========================================================
+   CONNECT WALLET
+========================================================= */
 
-async function switchToRobinhood(){
+async function connectWallet(wallet) {
 
-  const wallet =
-    await getWallet();
+  try {
+
+    const provider =
+      wallet.provider;
+
+    if (!provider) {
+      throw new Error(
+        "Wallet provider not found."
+      );
+    }
+
+    closeWalletSelector();
+
+    walletStatus.textContent =
+      "Connecting wallet...";
+
+    const accounts =
+      await provider.request({
+        method: "eth_requestAccounts"
+      });
+
+    if (
+      !accounts ||
+      !accounts.length
+    ) {
+      throw new Error(
+        "No wallet account returned."
+      );
+    }
+
+    selectedProvider =
+      provider;
+
+    selectedWalletName =
+      wallet.info?.name ||
+      "Wallet";
+
+    selectedAddress =
+      accounts[0];
+
+    /*
+      Make sure wallet is on Robinhood Chain.
+    */
+    await switchToRobinhood(
+      provider
+    );
+
+    updateConnectedUI();
+
+    /*
+      Listen for account/network changes.
+    */
+    if (provider.on) {
+
+      provider.on(
+        "accountsChanged",
+        accountsChanged
+      );
+
+      provider.on(
+        "chainChanged",
+        chainChanged
+      );
+    }
+
+  } catch (error) {
+
+    console.error(error);
+
+    walletStatus.textContent =
+      cleanError(error);
+
+  }
+}
 
 
-  try{
+/* =========================================================
+   CHAIN SWITCH
+========================================================= */
 
-    await wallet.request({
+async function switchToRobinhood(provider) {
 
+  const currentChain =
+    await provider.request({
+      method: "eth_chainId"
+    });
+
+  if (
+    currentChain.toLowerCase() ===
+    CONFIG.chainHex.toLowerCase()
+  ) {
+    return;
+  }
+
+  try {
+
+    await provider.request({
       method:
         "wallet_switchEthereumChain",
 
-      params:[
+      params: [
         {
           chainId:
             CONFIG.chainHex
         }
       ]
-
     });
 
-  }catch(error){
+  } catch (error) {
 
-    if(
-      error.code !== 4902
-    ){
+    /*
+      Chain is not yet added to wallet.
+    */
+    if (
+      error &&
+      (
+        error.code === 4902 ||
+        String(error.message)
+          .toLowerCase()
+          .includes("unrecognized chain")
+      )
+    ) {
 
-      throw error;
-
-    }
-
-
-    await wallet.request({
-
-      method:
-        "wallet_addEthereumChain",
-
-      params:[
-        {
-
-          chainId:
-            CONFIG.chainHex,
-
-          chainName:
-            "Robinhood Chain",
-
-          nativeCurrency:{
-            name:
-              "Ether",
-
-            symbol:
-              "ETH",
-
-            decimals:
-              18
-          },
-
-          rpcUrls:[
-            CONFIG.rpc
-          ],
-
-          blockExplorerUrls:[
-            CONFIG.explorer
-          ]
-
-        }
-      ]
-
-    });
-
-  }
-
-}
-
-
-/* =========================================
-   CONNECT
-========================================= */
-
-async function connectWallet(){
-
-  try{
-
-    const wallet =
-      await getWallet();
-
-
-    setStatus(
-      "Connecting wallet..."
-    );
-
-
-    await switchToRobinhood();
-
-
-    const accounts =
-      await wallet.request({
-
+      await provider.request({
         method:
-          "eth_requestAccounts"
+          "wallet_addEthereumChain",
 
+        params: [
+          {
+            chainId:
+              CONFIG.chainHex,
+
+            chainName:
+              CONFIG.chainName,
+
+            nativeCurrency: {
+              name: "Ether",
+              symbol: "ETH",
+              decimals: 18
+            },
+
+            rpcUrls: [
+              CONFIG.rpcUrl
+            ],
+
+            blockExplorerUrls: [
+              CONFIG.explorer
+            ]
+          }
+        ]
       });
 
-
-    if(
-      !accounts ||
-      !accounts.length
-    ){
-
-      throw new Error(
-        "No wallet account was returned."
-      );
-
+    } else {
+      throw error;
     }
+  }
+}
 
 
-    account =
-      accounts[0];
+/* =========================================================
+   UI AFTER CONNECT
+========================================================= */
+
+function updateConnectedUI() {
+
+  const shortAddress =
+    selectedAddress.slice(0, 6) +
+    "..." +
+    selectedAddress.slice(-4);
+
+  connectBtn.textContent =
+    shortAddress;
+
+  walletStatus.innerHTML =
+    `<strong>${escapeHtml(selectedWalletName)}</strong>
+     connected: ${escapeHtml(shortAddress)}`;
+
+  freeMintBtn.disabled = false;
+  publicMintBtn.disabled = false;
+
+  freeMintBtn.textContent =
+    "MINT FREE";
+
+  publicMintBtn.textContent =
+    "MINT NOW";
+}
 
 
-    walletAddress.textContent =
-      "CONNECTED: "
-      +
-      shortAddress(
-        account
-      );
+/* =========================================================
+   ACCOUNT CHANGE
+========================================================= */
 
+async function accountsChanged(accounts) {
+
+  if (
+    !accounts ||
+    !accounts.length
+  ) {
+
+    selectedAddress = null;
+    selectedProvider = null;
 
     connectBtn.textContent =
-      "WALLET CONNECTED";
+      "CONNECT WALLET";
 
+    walletStatus.textContent =
+      "Wallet disconnected.";
 
-    setStatus(
-      "Loading mint options..."
-    );
+    freeMintBtn.disabled = true;
+    publicMintBtn.disabled = true;
 
-
-    await loadMintLists();
-
-
-  }catch(error){
-
-    setStatus(
-      getErrorMessage(error),
-      "error"
-    );
-
+    return;
   }
 
+  selectedAddress =
+    accounts[0];
+
+  updateConnectedUI();
 }
 
 
-/* =========================================
-   LOAD MINT LISTS
-========================================= */
-
-async function loadMintLists(){
-
-  if(!account){
-
-    throw new Error(
-      "Connect your wallet first."
-    );
-
-  }
-
-
-  const url =
-    CONFIG.api
-    +
-    "/collection/"
-    +
-    encodeURIComponent(
-      CONFIG.collectionSlug
-    )
-    +
-    "/eligible-invite-lists?minterAddress="
-    +
-    encodeURIComponent(
-      account
-    );
-
-
-  const response =
-    await fetch(
-      url
-    );
-
-
-  const data =
-    await response.json();
-
-
-  if(
-    !response.ok
-  ){
-
-    throw new Error(
-      data?.message ||
-      data?.error ||
-      "Unable to load mint lists."
-    );
-
-  }
-
-
-  if(
-    Array.isArray(data)
-  ){
-
-    mintLists =
-      data;
-
-  }else{
-
-    mintLists =
-      data?.lists ||
-      data?.inviteLists ||
-      data?.data ||
-      [];
-
-  }
-
-
-  if(
-    !mintLists.length
-  ){
-
-    throw new Error(
-      "No mint lists are available for this wallet."
-    );
-
-  }
-
-
-  setStatus(
-    "Wallet connected. Ready to mint.",
-    "ok"
-  );
-
-}
-
-
-/* =========================================
-   FIND LIST
-========================================= */
-
-function findMintList(
-  type
+async function chainChanged(chai
